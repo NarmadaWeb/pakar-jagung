@@ -59,6 +59,9 @@ class Penyakit extends BaseController
             $kode = $this->request->getPost('kode_penyakit');
             $nama = $this->request->getPost('nama_penyakit');
             $solusi = $this->request->getPost('solusi');
+            $tindakan_segera = $this->request->getPost('tindakan_segera');
+            $protokol_pengobatan = $this->request->getPost('protokol_pengobatan');
+            $strategi_pencegahan = $this->request->getPost('strategi_pencegahan');
             $gambarUrl = $this->request->getPost('gambar_url');
             
             $gambar = '';
@@ -76,6 +79,9 @@ class Penyakit extends BaseController
                 'kode_penyakit' => $kode,
                 'nama_penyakit' => $nama,
                 'solusi' => $solusi,
+                'tindakan_segera' => $tindakan_segera,
+                'protokol_pengobatan' => $protokol_pengobatan,
+                'strategi_pencegahan' => $strategi_pencegahan,
                 'gambar' => $gambar,
             ]);
             
@@ -104,6 +110,9 @@ class Penyakit extends BaseController
                 'kode_penyakit' => $this->request->getPost('kode_penyakit'),
                 'nama_penyakit' => $this->request->getPost('nama_penyakit'),
                 'solusi' => $this->request->getPost('solusi'),
+                'tindakan_segera' => $this->request->getPost('tindakan_segera'),
+                'protokol_pengobatan' => $this->request->getPost('protokol_pengobatan'),
+                'strategi_pencegahan' => $this->request->getPost('strategi_pencegahan'),
             ];
             
             $gambarUrl = $this->request->getPost('gambar_url');

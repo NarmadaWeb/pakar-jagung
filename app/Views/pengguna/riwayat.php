@@ -98,14 +98,16 @@ $count = count($riwayatList);
                     <span class="material-symbols-outlined">search</span>
                 </span>
                 <input type="text" id="searchInput" onkeyup="searchRiwayat()" 
-                    placeholder="Cari penyakit..."
+                    placeholder="Cari Nama atau Penyakit "
                     class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm w-48 md:w-64 focus:ring-2 focus:ring-primary focus:border-primary">
             </div>
+            <?php if (session()->get('isLoggedIn')): ?>
             <button onclick="showModalHapusSemua()" 
                     class="px-3 py-1.5 bg-red-100 text-red-600 text-xs font-semibold rounded-lg hover:bg-red-200 transition-colors flex items-center gap-1">
                 <span class="material-symbols-outlined text-sm">delete_sweep</span>
                 Hapus Semua
             </button>
+            <?php endif; ?>
         </div>
         <?php endif; ?>
     </div>
@@ -129,182 +131,39 @@ function searchRiwayat() {
 </script>
 
 <?php if ($count > 0): ?>
-    <div class="space-y-6 print-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <?php foreach ($riwayatList as $r): ?>
         <?php if (empty($r['nama_penyakit'])) continue; ?>
         
         <?php 
-        $detailGejala = !empty($r['detail_gejala']) ? json_decode($r['detail_gejala'], true) : [];
-        $gejalaDipilih = !empty($r['gejala_dipilih']) ? json_decode($r['gejala_dipilih'], true) : [];
-        
         $keyakinan = 'Rendah';
         if ($r['persentase'] >= 75) $keyakinan = 'Sangat Kuat';
         elseif ($r['persentase'] >= 50) $keyakinan = 'Kuat';
         elseif ($r['persentase'] >= 25) $keyakinan = 'Sedang';
-        
-        if ($r['persentase'] >= 80) {
-            $statusLabel = 'SANGAT YAKIN';
-            $statusBg = 'bg-green-100 text-green-800';
-            $barColor = 'bg-green-500';
-        } elseif ($r['persentase'] >= 60) {
-            $statusLabel = 'YAKIN';
-            $statusBg = 'bg-green-100 text-green-800';
-            $barColor = 'bg-green-500';
-        } elseif ($r['persentase'] >= 40) {
-            $statusLabel = 'CUKUP YAKIN';
-            $statusBg = 'bg-green-100 text-green-800';
-            $barColor = 'bg-green-500';
-        } else {
-            $statusLabel = 'KURANG YAKIN';
-            $statusBg = 'bg-green-100 text-green-800';
-            $barColor = 'bg-green-500';
-        }
-?>
+        ?>
           
-        <div class="bg-white rounded-xl border-2 border-primary shadow-lg overflow-hidden riwayat-card" id="riwayat-card-<?= $r['id_riwayat'] ?>">
-            <!-- Print Header (Only visible in print) -->
-            <div class="print-header print-only">
-                <h2 class="text-2xl md:text-4xl font-black text-slate-900">Laporan Diagnosa</h2>
-                <p class="text-slate-600 text-sm md:text-base mt-1">
-                    Hasil analisis berdasarkan gejala yang diinput pada <?= date('d F Y, H:i', strtotime($r['tanggal_diagnosa'])) ?>
-                </p>
-                <div class="flex items-center gap-2 mt-2 text-xs text-slate-500">
-                    <span class="material-symbols-outlined text-sm">psychology</span>
-                    <span>Metode: Certainty Factor (CF)</span>
-                </div>
-            </div>
-            
-            <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl mb-6 print-info-box print-only">
-                <h3 class="font-bold text-blue-800 flex items-center gap-2">
-                    <span class="material-symbols-outlined">info</span>
-                    Tentang Metode Certainty Factor
-                </h3>
-                <p class="text-blue-700 text-sm mt-1">
-                    Sistem mencocokkan gejala yang Anda pilih dengan basis pengetahuan. CF = Keyakinan User × Keyakinan Pakar. 
-                    Nilai CF gabung dihitung menggunakan rumus: CFgab = CF1 + CF2(1-CF1). Hasil diagnosa menunjukkan tingkat kepastian tertinggi.
-                </p>
-            </div>
-            
-            <div class="bg-primary text-white px-6 py-2 flex items-center gap-2">
-                <span class="material-symbols-outlined">verified</span>
-                <span class="font-bold">Diagnosa Utama - <?= $statusLabel ?> (<?= $r['persentase'] ?>%)</span>
-            </div>
-            
-            <div class="p-6">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                    <div class="flex items-center gap-4">
-                        <?php 
-                        $db = \Config\Database::connect();
-                        $penyakitData = $db->table('penyakit')->where('nama_penyakit', $r['nama_penyakit'])->get()->getRowArray();
-                        $gambar = $penyakitData['gambar'] ?? '';
-                        $gambarSrc = (!empty($gambar) && (strpos($gambar, 'http') === 0 || strpos($gambar, 'uploads/') === 0)) 
-                            ? (strpos($gambar, 'http') === 0 ? $gambar : base_url($gambar)) 
-                            : '';
-                        if (!empty($gambarSrc)): ?>
-                        <img src="<?= $gambarSrc ?>" alt="<?= esc($r['nama_penyakit']) ?>" class="w-16 h-16 object-cover rounded-xl">
-                        <?php else: ?>
-                        <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
-                            <span class="material-symbols-outlined text-primary text-3xl">coronavirus</span>
-                        </div>
-                        <?php endif; ?>
-                        <div>
-                            <span class="inline-flex items-center rounded-lg bg-red-100 text-red-700 text-xs font-bold px-2 py-1">HASIL UTAMA</span>
-                            <h3 class="text-xl md:text-2xl font-bold text-primary mt-1"><?= esc($r['nama_penyakit']) ?></h3>
-                            <span class="text-sm text-slate-500"><?= esc($r['kode_penyakit'] ?? '-') ?></span>
-                        </div>
-                    </div>
-                    <div class="text-left md:text-right">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 <?= $statusBg ?> rounded-lg font-bold">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
-                            <?= number_format($r['persentase'], 2) ?>%
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4 text-sm text-slate-500 flex items-center gap-2 no-print">
-                    <span class="material-symbols-outlined text-sm">calendar_today</span>
-                    Tanggal: <?= date('d F Y, H:i', strtotime($r['tanggal_diagnosa'])) ?>
-                </div>
-
-                <div class="mb-6">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-sm font-semibold text-slate-600 uppercase tracking-wider">Keyakinan Diagnosa</span>
-                        <span class="text-sm font-bold text-primary"><?= $keyakinan ?></span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-3">
-                        <div class="<?= $barColor ?> h-3 rounded-full transition-all" style="width: <?= $r['persentase'] ?>%"></div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="material-symbols-outlined text-primary">description</span>
-                        <h4 class="font-bold text-slate-700">Definisi Penyakit</h4>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        <?= esc($r['solusi'] ?? 'Penyakit ini menyerang tanaman jagung dan dapat menyebabkan kerugian signifikan jika tidak ditangani dengan tepat.') ?>
-                    </p>
-                </div>
-
-                <div class="border border-slate-200 rounded-xl overflow-hidden mb-6">
-                    <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex justify-between items-center">
-                        <h4 class="font-bold text-slate-700">Detail Perhitungan CF</h4>
-                        <span class="material-symbols-outlined text-slate-500 text-sm">info</span>
-                    </div>
-                    <div class="p-4 space-y-2">
-                        <?php if (!empty($detailGejala)): ?>
-                            <?php foreach ($detailGejala as $g): ?>
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-slate-600"><?= esc($g['kode'] ?? '') ?> - <?= esc($g['nama'] ?? '') ?></span>
-                                <span class="font-semibold text-slate-700">CF = <?= $g['cf_user'] ?? 0 ?> × <?= $g['cf_pakar'] ?? 0 ?></span>
-                            </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        <hr class="border-slate-200 my-2"/>
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-slate-700">Hasil Akhir CF Combine</span>
-                            <span class="font-bold text-primary"><?= number_format($r['cf_hasil'], 4) ?></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-4">
-                    <h4 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">fact_check</span>
-                        Gejala Terdeteksi
-                    </h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <?php if (!empty($gejalaDipilih)): ?>
-                            <?php foreach ($gejalaDipilih as $g): ?>
-                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
-                                <span class="material-symbols-outlined text-blue-500 text-sm">check_circle</span>
-                                <span class="text-sm text-slate-600"><?= esc($g['kode'] ?? '') ?> - <?= esc($g['nama'] ?? '') ?></span>
-                            </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+        <a href="<?= base_url('riwayat/detail/' . $r['id_riwayat']) ?>" class="riwayat-card block bg-white hover:bg-slate-50 border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all cursor-pointer">
+            <div class="flex justify-between items-start mb-4">
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">info</span>
-                    ID Riwayat: <?= $r['id_riwayat'] ?> | Metode: Certainty Factor (CF)
+                    <span class="material-symbols-outlined text-primary">psychology</span>
+                    <span class="text-xs font-semibold text-slate-500"><?= date('d M Y', strtotime($r['tanggal_diagnosa'])) ?></span>
                 </div>
-                <div class="flex items-center gap-2 no-print">
-                    <button onclick="downloadPDF(<?= $r['id_riwayat'] ?>)" 
-                            class="flex items-center gap-1 px-2 py-1 text-slate-400 hover:text-primary hover:bg-primary/10 rounded transition-colors no-print">
-                        <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
-                        <span>PDF</span>
-                    </button>
-                    <button onclick="showModalHapus('<?= base_url('riwayat/hapus/' . $r['id_riwayat']) ?>')" 
-                            class="flex items-center gap-1 px-2 py-1 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors no-print">
-                        <span class="material-symbols-outlined text-sm">delete</span>
-                        <span class="no-print">Hapus</span>
-                    </button>
-                </div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    <?= $r['persentase'] ?>%
+                </span>
             </div>
-        </div>
+            
+            <h3 class="text-lg font-bold text-slate-900 mb-1"><?= esc($r['nama_penyakit']) ?></h3>
+            <p class="text-sm text-slate-500 mb-4 flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">person</span>
+                <?= esc($r['nama_user'] ?? 'Pengguna Anonim') ?>
+            </p>
+            
+            <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-sm">
+                <span class="text-primary font-medium hover:underline">Lihat Detail</span>
+                <span class="material-symbols-outlined text-slate-400">arrow_forward</span>
+            </div>
+        </a>
         <?php endforeach; ?>
     </div>
 <?php else: ?>
@@ -312,56 +171,13 @@ function searchRiwayat() {
         <span class="material-symbols-outlined text-6xl text-slate-300">history</span>
         <h3 class="text-slate-700 text-xl font-bold">Belum Ada Riwayat</h3>
         <p class="text-slate-500 text-sm max-w-xs">Anda belum melakukan deteksi penyakit apapun.</p>
-        <?php if (session()->get('isLoggedIn')): ?>
         <a href="<?= base_url('deteksi') ?>" class="mt-4 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90">
             Mulai Deteksi
         </a>
-        <?php endif; ?>
     </div>
 <?php endif; ?>
 
 <script>
-function showModalHapus(url) {
-    document.getElementById('btn-konfirmasi-hapus').href = url;
-    document.getElementById('modal-hapus').classList.remove('hidden');
-}
-
-function showModalHapusSemua() {
-    document.getElementById('modal-hapus-semua').classList.remove('hidden');
-}
-
-function downloadPDF(id) {
-    // Hide all cards first
-    document.querySelectorAll('.riwayat-card').forEach(card => {
-        card.classList.add('print-hide');
-    });
-    
-    // Show only selected card
-    const selectedCard = document.getElementById('riwayat-card-' + id);
-    selectedCard.classList.remove('print-hide');
-    selectedCard.classList.add('print-show');
-    
-    // Hide delete button in print
-    selectedCard.querySelectorAll('.no-print').forEach(el => {
-        el.style.display = 'none';
-    });
-    
-    window.print();
-    
-    // Reset
-    document.querySelectorAll('.riwayat-card').forEach(card => {
-        card.classList.remove('print-hide', 'print-show');
-    });
-    selectedCard.querySelectorAll('.no-print').forEach(el => {
-        el.style.display = '';
-    });
-}
-
-function showModalHapus(url) {
-    document.getElementById('btn-konfirmasi-hapus').href = url;
-    document.getElementById('modal-hapus').classList.remove('hidden');
-}
-
 function showModalHapusSemua() {
     document.getElementById('modal-hapus-semua').classList.remove('hidden');
 }

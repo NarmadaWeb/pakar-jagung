@@ -64,10 +64,17 @@
             <p class="text-sm text-slate-500 mt-1 font-medium">Sistem Pakar Jagung</p>
         </div>
         <nav class="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
+            <?php if (session()->get('isLoggedIn')): ?>
             <a class="flex items-center gap-3 px-3 py-3 <?= $currentUri === 'dashboard' ? 'bg-primary/10 text-primary border-r-4 border-primary' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800' ?> transition-all duration-200 text-base font-bold rounded-r" href="<?= base_url('dashboard') ?>" onclick="closeSidebarOnMobile()">
                 <span class="material-symbols-outlined text-xl">dashboard</span>
                 Dashboard
             </a>
+            <?php else: ?>
+            <a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-base font-bold rounded-r" href="<?= base_url('/') ?>" onclick="closeSidebarOnMobile()">
+                <span class="material-symbols-outlined text-xl">home</span>
+                Beranda
+            </a>
+            <?php endif; ?>
             <a class="flex items-center gap-3 px-3 py-3 <?= str_starts_with($currentUri, 'deteksi') ? 'bg-primary/10 text-primary border-r-4 border-primary' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800' ?> transition-all duration-200 text-base font-bold rounded-r" href="<?= base_url('deteksi') ?>" onclick="closeSidebarOnMobile()">
                 <span class="material-symbols-outlined text-xl">query_stats</span>
                 Diagnosa
@@ -84,6 +91,7 @@
             <?php endif; ?>
         </nav>
         <div class="p-4 border-t border-slate-100 dark:border-slate-700">
+            <?php if (session()->get('isLoggedIn')): ?>
             <a href="<?= base_url('profile') ?>" class="flex items-center gap-3 mb-4 hover:bg-slate-50 p-2 rounded-lg transition-colors">
                 <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                     <span class="material-symbols-outlined text-2xl">person</span>
@@ -97,6 +105,7 @@
                 <span class="material-symbols-outlined text-xl">logout</span>
                 <span class="font-semibold text-base">Logout</span>
             </a>
+            <?php endif; ?>
         </div>
     </aside>
     

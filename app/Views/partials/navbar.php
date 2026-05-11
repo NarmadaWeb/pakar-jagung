@@ -13,9 +13,7 @@ $isHome = ($currentUri === '' || $currentUri === '/');
         <nav class="flex items-center gap-10">
             <a class="<?= $currentUri === '' || $currentUri === '/' ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('/') ?>">Beranda</a>
             <a class="<?= str_starts_with($currentUri, 'library') ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('library') ?>">Library</a>
-            <?php if (session()->get('isLoggedIn')): ?>
-            <a class="<?= $currentUri === 'dashboard' ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('dashboard') ?>">Dashboard</a>
-            <?php endif; ?>
+            <a class="<?= str_starts_with($currentUri, 'riwayat') ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('riwayat') ?>">Riwayat</a>
             <a class="<?= $currentUri === 'tentang' ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('tentang') ?>">Tentang</a>
         </nav>
         <div class="flex items-center gap-3">
@@ -26,9 +24,6 @@ $isHome = ($currentUri === '' || $currentUri === '/');
                 <a href="<?= base_url('logout') ?>" class="flex items-center justify-center w-9 h-9 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition-colors" title="Logout">
                     <span class="material-symbols-outlined">logout</span>
                 </a>
-            <?php else: ?>
-                <a href="<?= base_url('login') ?>" class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Login</a>
-                <a href="<?= base_url('auth/register') ?>" class="px-4 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors">Daftar</a>
             <?php endif; ?>
         </div>
     </div>
@@ -52,10 +47,7 @@ $isHome = ($currentUri === '' || $currentUri === '/');
 <nav class="flex-1 p-6 flex flex-col gap-2">
         <a class="<?= $currentUri === '' || $currentUri === '/' ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('/') ?>">Beranda</a>
         <a class="<?= str_starts_with($currentUri, 'library') ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('library') ?>">Library</a>
-        <?php if (session()->get('isLoggedIn')): ?>
-        <a class="<?= $currentUri === 'dashboard' ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('dashboard') ?>">Dashboard</a>
         <a class="<?= str_starts_with($currentUri, 'riwayat') ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('riwayat') ?>">Riwayat</a>
-        <?php endif; ?>
         <a class="<?= $currentUri === 'tentang' ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('tentang') ?>">Tentang</a>
     </nav>
     <div class="p-6 border-t border-slate-100">
@@ -68,11 +60,6 @@ $isHome = ($currentUri === '' || $currentUri === '/');
                 <span class="material-symbols-outlined">logout</span>
                 Logout
             </a>
-        <?php else: ?>
-            <div class="flex gap-3">
-                <a href="<?= base_url('login') ?>" class="flex-1 px-4 py-3 text-center text-sm font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Login</a>
-                <a href="<?= base_url('auth/register') ?>" class="flex-1 px-4 py-3 text-center text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors">Daftar</a>
-            </div>
         <?php endif; ?>
     </div>
 </div>

@@ -23,6 +23,36 @@
             </div>
         </div>
 
+        <div class="rounded-2xl border border-red-500/10 bg-white p-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/10 text-red-600">
+                    <span class="material-symbols-outlined">emergency</span>
+                </div>
+                <h2 class="text-slate-900 text-lg font-bold">Tindakan Segera</h2>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed whitespace-pre-wrap"><?= esc($detail['penyakit']['tindakan_segera'] ?? 'Belum ada data.') ?></p>
+        </div>
+
+        <div class="rounded-2xl border border-blue-500/10 bg-white p-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
+                    <span class="material-symbols-outlined">medical_services</span>
+                </div>
+                <h2 class="text-slate-900 text-lg font-bold">Protokol Pengobatan</h2>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed whitespace-pre-wrap"><?= esc($detail['penyakit']['protokol_pengobatan'] ?? 'Belum ada data.') ?></p>
+        </div>
+
+        <div class="rounded-2xl border border-green-500/10 bg-white p-8 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 text-green-600">
+                    <span class="material-symbols-outlined">security</span>
+                </div>
+                <h2 class="text-slate-900 text-lg font-bold">Strategi Pencegahan</h2>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed whitespace-pre-wrap"><?= esc($detail['penyakit']['strategi_pencegahan'] ?? 'Belum ada data.') ?></p>
+        </div>
+
         <div class="rounded-2xl border border-primary/10 bg-white p-8 shadow-sm">
             <div class="flex items-center gap-3 mb-6">
                 <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">

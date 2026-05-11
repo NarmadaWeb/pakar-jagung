@@ -12,19 +12,11 @@ class Deteksi extends BaseController
         date_default_timezone_set('Asia/Makassar');
     }
 
-    private function requireLogin()
-    {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu untuk melakukan deteksi.');
-        }
-        return null;
-    }
+    // Removed requireLogin since auth is now removed
 
     public function index()
     {
-        if ($redirect = $this->requireLogin()) {
-            return $redirect;
-        }
+        // No auth required
 
         // Hapus session diagnosa sebelumnya agar bisa mulai baru
         session()->remove('diagnosa_hasil');
@@ -51,9 +43,7 @@ class Deteksi extends BaseController
 
     public function proses()
     {
-        if ($redirect = $this->requireLogin()) {
-            return $redirect;
-        }
+        // No auth required
 
         $gejalaDipilih = $this->request->getPost('gejala');
         $kepastian = $this->request->getPost('kepastian');
@@ -64,6 +54,10 @@ class Deteksi extends BaseController
 
         $db = Database::connect();
         $userId = session()->get('id');
+        $namaUser = trim($this->request->getPost('nama_user') ?? '');
+        if (empty($namaUser)) {
+            return redirect()->to('deteksi')->with('error', 'Nama wajib diisi sebelum melakukan diagnosa!');
+        }
         
         $semuaPenyakit = $db->table('penyakit')->get()->getResultArray();
         $semuaGejala = $db->table('gejala')->get()->getResultArray();
@@ -159,6 +153,7 @@ class Deteksi extends BaseController
         
         $insertData = [
             'id_user' => $userId,
+            'nama_user' => $namaUser,
             'id_penyakit' => $penyakitTerbaik['penyakit']['id_penyakit'] ?? null,
             'nama_penyakit' => $penyakitTerbaik['penyakit']['nama_penyakit'] ?? 'Tidak Diketahui',
             'kode_penyakit' => $penyakitTerbaik['penyakit']['kode_penyakit'] ?? '-',
@@ -170,8 +165,10 @@ class Deteksi extends BaseController
             'tanggal_diagnosa' => date('Y-m-d H:i:s'),
         ];
         
-        // DON'T auto-save - wait for user confirmation
-        log_message('info', 'UserID: ' . $userId . ' - Menunggu konfirmasi simpan');
+        // Auto-save ke database
+        $builder = $db->table('riwayat_diagnosa');
+        $result = $builder->insert($insertData);
+        log_message('info', 'UserID: ' . $userId . ' - Auto-save riwayat: ' . ($result ? 'berhasil' : 'gagal'));
         
         $data['hasil'] = $hasil;
         $data['gejalaDipilih'] = $gejalaDipilih;
@@ -185,9 +182,7 @@ class Deteksi extends BaseController
 
     public function simpanRiwayat()
     {
-        if ($redirect = $this->requireLogin()) {
-            return $redirect;
-        }
+        // No auth required
         
         $data = session()->get('diagnosa_hasil');
         if (empty($data) || empty($data['insertData'])) {
@@ -212,9 +207,7 @@ class Deteksi extends BaseController
 
     public function hasil()
     {
-        if ($redirect = $this->requireLogin()) {
-            return $redirect;
-        }
+        // No auth required
         
         // Ambil dari session
         $data = session()->get('diagnosa_hasil');
@@ -252,12 +245,7 @@ class Deteksi extends BaseController
 
     public function upload()
     {
-        if ($redirect = $this->requireLogin()) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Silakan login terlebih dahulu'
-            ]);
-        }
+        // No auth required
 
         $file = $this->request->getFile('foto');
         

@@ -8,21 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 // ─── Auth Routes (Public) ───────────────────────────────────
-$routes->get('/', 'Home::index');
-$routes->get('login', 'Auth::index');
 $routes->get('login-admin', 'Auth::loginAdmin');
-$routes->get('auth/register', 'Auth::register');
-$routes->get('register', 'Auth::register');
-$routes->get('lupa-password', 'Auth::lupaPassword');
 $routes->post('auth/admin-login', 'Auth::prosesLoginAdmin');
 $routes->post('admin/login', 'Auth::prosesLoginAdmin');
-$routes->post('auth/login', 'Auth::prosesLogin');
-$routes->post('auth/proses-login', 'Auth::prosesLogin');
-$routes->post('auth/register', 'Auth::prosesRegister');
-$routes->post('auth/proses-register', 'Auth::prosesRegister');
-$routes->post('lupa-password', 'Auth::kirimResetPassword');
-$routes->get('reset-password/(:any)', 'Auth::resetPassword/$1');
-$routes->post('reset-password', 'Auth::prosesResetPassword');
+$routes->get('logout', 'Auth::logout');
 $routes->get('logout', 'Auth::logout');
 
 // ─── Halaman Statis Public ───────────────────────────────────
@@ -35,22 +24,22 @@ $routes->get('privasi', 'Pages::privasi');
 $routes->get('syarat', 'Pages::syarat');
 
 // ─── User Dashboard (Perlu Login) ───────────────────────────
-$routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
+// Removed as user login is disabled
 
-// ─── Deteksi / Diagnosa (Perlu Login) ───────────────────────
-$routes->get('deteksi', 'Deteksi::index', ['filter' => 'auth']);
-$routes->post('deteksi/proses', 'Deteksi::proses', ['filter' => 'auth']);
-$routes->get('deteksi/hasil', 'Deteksi::hasil', ['filter' => 'auth']);
-$routes->post('deteksi/simpan', 'Deteksi::simpanRiwayat', ['filter' => 'auth']);
-$routes->get('deteksi/batal', 'Deteksi::batal', ['filter' => 'auth']);
+// ─── Deteksi / Diagnosa (Public) ───────────────────────
+$routes->get('deteksi', 'Deteksi::index');
+$routes->post('deteksi/proses', 'Deteksi::proses');
+$routes->get('deteksi/hasil', 'Deteksi::hasil');
+$routes->post('deteksi/simpan', 'Deteksi::simpanRiwayat');
+$routes->get('deteksi/batal', 'Deteksi::batal');
 
-// ─── Riwayat User (Perlu Login) ──────────────────────────────
-$routes->get('riwayat', 'Pages::riwayat', ['filter' => 'auth']);
-$routes->get('riwayat/detail/(:num)', 'Pages::riwayatDetail/$1', ['filter' => 'auth']);
-$routes->get('riwayat/hapus/(:num)', 'Pages::hapusRiwayat/$1', ['filter' => 'auth']);
-$routes->post('riwayat/hapus/(:num)', 'Pages::hapusRiwayat/$1', ['filter' => 'auth']);
-$routes->post('riwayat/hapus-semua', 'Pages::hapusSemuaRiwayat', ['filter' => 'auth']);
-$routes->get('riwayat/hapus-semua', 'Pages::hapusSemuaRiwayat', ['filter' => 'auth']);
+// ─── Riwayat User (Public) ──────────────────────────────
+$routes->get('riwayat', 'Pages::riwayat');
+$routes->get('riwayat/detail/(:num)', 'Pages::riwayatDetail/$1');
+$routes->get('riwayat/hapus/(:num)', 'Pages::hapusRiwayat/$1');
+$routes->post('riwayat/hapus/(:num)', 'Pages::hapusRiwayat/$1');
+$routes->post('riwayat/hapus-semua', 'Pages::hapusSemuaRiwayat');
+$routes->get('riwayat/hapus-semua', 'Pages::hapusSemuaRiwayat');
 
 // ─── Profile User (Perlu Login) ─────────────────────────────
 $routes->get('profile', 'Pages::profile', ['filter' => 'auth']);

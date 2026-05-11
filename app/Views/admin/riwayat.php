@@ -75,8 +75,8 @@
                         </td>
                         <td class="py-3 px-4 text-slate-900 dark:text-slate-100">
                             <div class="flex flex-col">
-                                <span class="font-medium"><?= $r['nama_lengkap'] ?? 'Tidak diketahui' ?></span>
-                                <span class="text-xs text-slate-500"><?= $r['email'] ?? '-' ?></span>
+                                <span class="font-medium"><?= $r['nama_lengkap'] ?? $r['nama_user'] ?? 'Pengguna Anonim' ?></span>
+                                <span class="text-xs text-slate-500"><?= !empty($r['email']) ? $r['email'] : 'Publik / Non-Login' ?></span>
                             </div>
                         </td>
                         <td class="py-3 px-4">
@@ -151,8 +151,8 @@ const riwayatData = <?= isset($riwayat) ? json_encode(array_map(function($r) {
     return [
         'id' => $r['id_riwayat'] ?? 0,
         'tanggal' => date('d/m/Y H:i', strtotime($r['tanggal_diagnosa'] ?? date('Y-m-d H:i:s'))),
-        'pengguna' => $r['nama_lengkap'] ?? 'Tidak diketahui',
-        'email' => $r['email'] ?? '',
+        'pengguna' => $r['nama_lengkap'] ?? $r['nama_user'] ?? 'Pengguna Anonim',
+        'email' => !empty($r['email']) ? $r['email'] : 'Publik / Non-Login',
         'penyakit' => $r['nama_penyakit'] ?? '-',
         'kode_penyakit' => $r['kode_penyakit'] ?? '-',
         'gejala' => is_array($gejala) ? array_map(function($g) { return is_array($g) ? ($g['kode'] ?? $g) : $g; }, $gejala) : [],

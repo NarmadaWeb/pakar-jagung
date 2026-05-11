@@ -52,6 +52,24 @@ $action = isset($penyakit) ? base_url('penyakit/edit/' . $penyakit['id_penyakit'
         <textarea name="solusi" rows="4" required
                   class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"><?= isset($penyakit) ? esc($penyakit['solusi']) : '' ?></textarea>
     </div>
+
+    <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-2">Tindakan Segera</label>
+        <textarea name="tindakan_segera" rows="3"
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"><?= isset($penyakit) && isset($penyakit['tindakan_segera']) ? esc($penyakit['tindakan_segera']) : '' ?></textarea>
+    </div>
+
+    <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-2">Protokol Pengobatan</label>
+        <textarea name="protokol_pengobatan" rows="3"
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"><?= isset($penyakit) && isset($penyakit['protokol_pengobatan']) ? esc($penyakit['protokol_pengobatan']) : '' ?></textarea>
+    </div>
+
+    <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-2">Strategi Pencegahan</label>
+        <textarea name="strategi_pencegahan" rows="3"
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"><?= isset($penyakit) && isset($penyakit['strategi_pencegahan']) ? esc($penyakit['strategi_pencegahan']) : '' ?></textarea>
+    </div>
     
     <div class="flex gap-3 pt-2">
         <a href="<?= base_url('penyakit') ?>" class="px-6 py-2 border border-slate-300 rounded-lg font-semibold hover:bg-slate-50">Batal</a>

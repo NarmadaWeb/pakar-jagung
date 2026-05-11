@@ -12,7 +12,7 @@ class PenyakitModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_penyakit', 'nama_penyakit', 'solusi', 'gambar'];
+    protected $allowedFields    = ['kode_penyakit', 'nama_penyakit', 'solusi', 'gambar', 'tindakan_segera', 'protokol_pengobatan', 'strategi_pencegahan'];
 
     public function getAllWithGejalaCount()
     {

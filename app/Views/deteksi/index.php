@@ -2,255 +2,217 @@
 
 <?= $this->section('meta') ?>
 <meta name="description" content="Deteksi penyakit tanaman jagung berdasarkan gejala dengan metode Certainty Factor.">
+<style>
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        border-radius: 9999px;
+        outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #56995c;
+        cursor: pointer;
+        border: 3px solid white;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #56995c;
+        cursor: pointer;
+        border: 3px solid white;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    .gejala-card.selected {
+        border-color: #56995c !important;
+    }
+    .gejala-card.selected .card-icon-wrap {
+        background-color: rgba(86, 153, 92, 0.15) !important;
+        color: #56995c !important;
+    }
+    .gejala-card.selected .card-check {
+        display: flex !important;
+    }
+    .gejala-card.selected .slider-container {
+        display: block !important;
+    }
+</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <div class="flex flex-col gap-2 mb-4">
-        <span class="text-primary font-semibold tracking-widest uppercase text-xs">AI Deteksi</span>
-        <h1 class="text-xl md:text-2xl font-bold">Deteksi Penyakit Jagung</h1>
-        <div class="h-1 w-16 bg-primary rounded-full"></div>
-        <p class="text-slate-600 text-sm">Pilih gejala dan tentukan tingkat kepastian Anda untuk setiap gejala.</p>
-    </div>
-
-    <div class="bg-blue-50 border border-blue-200 p-3 rounded-lg mb-4">
-        <h3 class="font-semibold text-blue-800 flex items-center gap-2 mb-2 text-sm">
-            <span class="material-symbols-outlined text-lg">info</span>
-            Tabel Kepastian (MB/MD)
-        </h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
-            <div class="flex items-center gap-1"><span class="font-bold text-red-600">0</span> - Tidak ada</div>
-            <div class="flex items-center gap-1"><span class="font-bold text-red-600">0.2</span> - Tidak Tau</div>
-            <div class="flex items-center gap-1"><span class="font-bold text-orange-600">0.4</span> - Sedikit Yakin</div>
-            <div class="flex items-center gap-1"><span class="font-bold text-yellow-600">0.6</span> - Cukup Yakin</div>
-            <div class="flex items-center gap-1"><span class="font-bold text-blue-600">0.8</span> - Yakin</div>
-            <div class="flex items-center gap-1"><span class="font-bold text-green-600">1</span> - Sangat Yakin</div>
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-2xl lg:text-3xl font-bold tracking-tight mb-2">Diagnosa Kesehatan Jagung</h1>
+            <p class="text-slate-500 text-base max-w-2xl leading-relaxed">
+                Pilih gejala yang diamati untuk mengidentifikasi penyakit potensial menggunakan Sistem Pakar kami.
+                Sesuaikan tingkat keyakinan untuk hasil yang lebih akurat.
+            </p>
         </div>
-    </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-        <!-- Form Gejala dengan Kepastian -->
-        <div class="space-y-6">
-            <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200">
-                <h2 class="text-lg md:text-xl font-bold mb-3 md:mb-4 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">assignment</span>
-                    Pilih Gejala & Tingkat Kepastian
-                </h2>
-                
-                <!-- Quick Category Buttons -->
-                <div class="flex flex-wrap gap-2 mb-4 p-2 bg-slate-100 rounded-lg">
-                    <?php foreach ($gejala_grouped as $kategori => $gejalaList): ?>
-                    <button type="button" onclick="scrollToKategori('<?= esc($kategori) ?>')" 
-                            class="kategori-btn px-4 py-2 text-sm font-medium rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all">
-                        <?= esc($kategori) ?> (<?= count($gejalaList) ?>)
-                    </button>
-                    <?php endforeach; ?>
+        <!-- Info Box -->
+        <div class="bg-primary/5 border border-primary/20 p-4 rounded-2xl mb-6 flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+            <div>
+                <h3 class="font-bold text-slate-800 text-sm mb-1">Tabel Kepastian (MB/MD)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm text-slate-600">
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-red-500">0</span> - Tidak ada</div>
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-red-500">0.2</span> - Tidak Tau</div>
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-orange-500">0.4</span> - Sedikit Yakin</div>
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-yellow-500">0.6</span> - Cukup Yakin</div>
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-blue-500">0.8</span> - Yakin</div>
+                    <div class="flex items-center gap-1.5"><span class="font-bold text-green-600">1</span> - Sangat Yakin</div>
                 </div>
-                
-                <form action="<?= base_url('deteksi/proses') ?>" method="post" id="gejalaForm">
-                    <?php foreach ($gejala_grouped as $kategori => $gejalaList): ?>
-                    <div id="kategori-<?= esc($kategori) ?>" class="mb-6 scroll-mt-20">
-                        <h3 class="text-lg font-bold text-primary mb-3 flex items-center gap-2">
-                            <span class="material-symbols-outlined">category</span>
-                            <?= esc($kategori) ?>
-                            <span class="text-xs font-normal text-slate-500">(<?= count($gejalaList) ?> gejala)</span>
-                        </h3>
-                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-sm">
-                                    <thead class="bg-slate-100 text-slate-700">
-                                        <tr>
-                                            <th class="px-4 py-3 text-left font-semibold"><span class="material-symbols-outlined align-middle">check_box</span></th>
-                                            <th class="px-4 py-3 text-left font-semibold">Kode</th>
-                                            <th class="px-4 py-3 text-left font-semibold">Nama Gejala</th>
-                                            <th class="px-4 py-3 text-left font-semibold">Kepastian</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-slate-100">
-                                        <?php foreach ($gejalaList as $g): ?>
-                                        <tr class="transition-all duration-200 group gejala-row" data-id="<?= $g['id_gejala'] ?>">
-                                            <td class="px-4 py-3">
-                                                <input type="checkbox" name="gejala[]" value="<?= $g['id_gejala'] ?>" 
-                                                       class="gejala-checkbox w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer accent-primary">
-                                            </td>
-                                            <td class="px-4 py-3">
-                                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-green-500 text-white font-bold text-sm shadow-md">
-                                                    <?= esc($g['kode_gejala']) ?>
-                                                </span>
-                                            </td>
-                                            <td class="px-4 py-3">
-                                                <span class="text-slate-700 font-medium group-hover:text-primary transition-colors">
-                                                    <?= esc($g['nama_gejala']) ?>
-                                                </span>
-                                            </td>
-                                            <td class="px-4 py-3">
-                                                <button type="button" onclick="pilihGejala(this, <?= $g['id_gejala'] ?>)" 
-                                                        class="pilih-btn px-4 py-2 text-sm font-medium rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-all">
-                                                    Pilih
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
+            </div>
+        </div>
+
+        <form action="<?= base_url('deteksi/proses') ?>" method="post" id="gejalaForm">
+            <!-- Input Nama -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 mb-6 shadow-sm">
+                <label for="nama_user" class="block text-sm font-bold text-slate-800 mb-2">
+                    Nama Anda <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="nama_user" name="nama_user" placeholder="Masukkan nama Anda..." required
+                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-700"
+                       oninvalid="this.setCustomValidity('Nama wajib diisi sebelum melakukan diagnosa')" oninput="this.setCustomValidity('')">
+                <p class="text-xs text-slate-400 mt-1">Nama akan ditampilkan pada riwayat diagnosa.</p>
+            </div>
+
+        <!-- Category Quick Nav -->
+        <div class="flex flex-wrap gap-2 mb-6">
+            <?php foreach ($gejala_grouped as $kategori => $gejalaList): ?>
+            <button type="button" onclick="scrollToKategori('<?= esc($kategori) ?>')"
+                    class="kategori-btn px-4 py-2 text-sm font-bold rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm">
+                <?= esc($kategori) ?> <span class="text-xs opacity-70">(<?= count($gejalaList) ?>)</span>
+            </button>
+            <?php endforeach; ?>
+        </div>
+
+        <?php foreach ($gejala_grouped as $kategori => $gejalaList): ?>
+            <div id="kategori-<?= esc($kategori) ?>" class="mb-8 scroll-mt-24">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">category</span>
+                    <?= esc($kategori) ?>
+                    <span class="text-xs font-normal text-slate-400">(<?= count($gejalaList) ?> gejala)</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <?php foreach ($gejalaList as $g): ?>
+                    <?php
+                        $desc = strtolower($g['nama_gejala']);
+                        if (strpos($desc, 'daun') !== false) $icon = 'eco';
+                        elseif (strpos($desc, 'batang') !== false) $icon = 'account_tree';
+                        elseif (strpos($desc, 'akar') !== false) $icon = 'psychology_alt';
+                        elseif (strpos($desc, 'tumbuh') !== false || strpos($desc, 'kerdil') !== false) $icon = 'trending_down';
+                        elseif (strpos($desc, 'biji') !== false || strpos($desc, 'tongkol') !== false) $icon = 'grass';
+                        else $icon = 'coronavirus';
+                    ?>
+                    <div id="gejala-<?= $g['id_gejala'] ?>"
+                         class="gejala-card group relative flex flex-col gap-3 rounded-2xl border-2 border-transparent bg-white p-5 shadow-sm transition-all cursor-pointer hover:border-primary/40 hover:shadow-md"
+                         onclick="toggleGejala(<?= $g['id_gejala'] ?>)">
+
+                        <!-- Checkmark -->
+                        <div class="card-check absolute top-4 right-4 hidden">
+                            <div class="size-6 rounded-full bg-primary flex items-center justify-center text-white">
+                                <span class="material-symbols-outlined text-sm font-bold">check</span>
                             </div>
+                        </div>
+
+                        <!-- Hidden form inputs -->
+                        <input type="checkbox" name="gejala[]" value="<?= $g['id_gejala'] ?>"
+                               class="gejala-checkbox hidden" id="cb-<?= $g['id_gejala'] ?>">
+
+                        <div class="flex items-start gap-4">
+                            <div class="card-icon-wrap p-3 rounded-xl bg-slate-100 text-slate-500 transition-colors">
+                                <span class="material-symbols-outlined text-2xl"><?= $icon ?></span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-base font-bold mb-0.5 text-slate-800"><?= esc($g['kode_gejala']) ?></h3>
+                                <p class="text-sm text-slate-500 leading-relaxed"><?= esc($g['nama_gejala']) ?></p>
+                            </div>
+                        </div>
+
+                        <!-- Slider -->
+                        <div class="slider-container hidden mt-2 pt-3 border-t border-slate-100" onclick="event.stopPropagation()">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tingkat Keyakinan</label>
+                                <span id="conf-val-<?= $g['id_gejala'] ?>" class="text-sm font-bold text-primary">0.6</span>
+                            </div>
+                            <input class="w-full bg-slate-200 rounded-lg cursor-pointer"
+                                type="range" min="0" max="1" step="0.2" value="0.6"
+                                id="slider-<?= $g['id_gejala'] ?>"
+                                oninput="updateKeyakinan(<?= $g['id_gejala'] ?>, this.value)">
+                            <input type="hidden" name="kepastian[<?= $g['id_gejala'] ?>]" value="0.6"
+                                   id="kepastian-<?= $g['id_gejala'] ?>" disabled>
                         </div>
                     </div>
                     <?php endforeach; ?>
-                    <div class="mt-6 flex flex-col md:flex-row gap-4">
-                        <button type="submit" class="flex-1 bg-gradient-to-r from-primary to-green-600 text-white px-8 py-4 rounded-xl font-bold hover:from-primary/90 hover:to-green-600/90 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all">
-                            <span class="material-symbols-outlined text-xl">search</span>
-                            Proses Diagnosa
-                        </button>
-                        <button type="button" onclick="resetForm()" class="px-8 py-4 rounded-xl font-bold border-2 border-slate-300 hover:border-slate-400 hover:bg-slate-50 flex items-center justify-center gap-2 transition-all">
-                            <span class="material-symbols-outlined">refresh</span>
-                            Reset
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+            <?php endforeach; ?>
 
-        <!-- Hasil / Preview -->
-        <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200">
-            <h2 class="text-lg md:text-xl font-bold mb-3 md:mb-4 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">info</span>
-                Petunjuk
-            </h2>
-            <div class="space-y-4 text-slate-600">
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-primary">check_circle</span>
-                    <p>Centang gejala yang Anda lihat pada tanaman jagung</p>
-                </div>
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-primary">check_circle</span>
-                    <p>Pilih tingkat kepastian Anda untuk setiap gejala yang dipilih</p>
-                </div>
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-primary">check_circle</span>
-                    <p>Sistem akan menghitung CF combine: CF(user) × CF(pakar)</p>
-                </div>
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-primary">check_circle</span>
-                    <p>Anda akan mendapatkan diagnosis dengan persentase kepastian</p>
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 py-6 border-t border-slate-200 mt-4">
+                <a href="<?= base_url('/') ?>" class="w-full sm:w-auto px-6 py-3 rounded-xl border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 bg-white shadow-sm">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    Kembali
+                </a>
+                <div class="flex gap-3 w-full sm:w-auto">
+                    <button type="button" onclick="resetForm()" class="flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold border border-slate-200 hover:bg-slate-50 flex items-center justify-center gap-2 transition-all bg-white shadow-sm text-slate-600">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Reset
+                    </button>
+                    <button type="submit" id="btn-diagnosa" class="flex-1 sm:flex-none px-8 py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                        Proses Diagnosa
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
                 </div>
             </div>
-            
-            <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                <h3 class="font-bold text-green-800 mb-2">Rumus Perhitungan CF:</h3>
-                <div class="text-sm text-green-700 space-y-2">
-                    <p><strong>CF Gejala = CF(user) × CF(pakar)</strong></p>
-                    <p><strong>CF Combine = CF₁ + CF₂ × (1 − CF₁)</strong></p>
-                    <p><strong>Persentase = CF Combine × 100%</strong></p>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
 <script>
-    const kepastianOptions = [
-        { value: '0', label: 'Tidak ada (0)' },
-        { value: '0.2', label: 'Tidak Tau (0.2)' },
-        { value: '0.4', label: 'Sedikit Yakin (0.4)' },
-        { value: '0.6', label: 'Cukup Yakin (0.6)' },
-        { value: '0.8', label: 'Yakin (0.8)' },
-        { value: '1', label: 'Sangat Yakin (1)' }
-    ];
-    
-    function pilihGejala(btn, id) {
-        const checkbox = document.querySelector(`input[name="gejala[]"][value="${id}"]`);
-        const row = btn.closest('tr');
-        
-        if (checkbox && checkbox.checked) {
-            checkbox.checked = false;
-            btn.textContent = 'Pilih';
-            btn.classList.remove('bg-primary', 'text-white');
-            btn.classList.add('border-primary', 'text-primary');
-            row.classList.remove('bg-green-50');
-            // Remove hidden input
-            const hiddenInput = row.querySelector('input[type="hidden"]');
-            if (hiddenInput) hiddenInput.remove();
-            return;
+    let gejalaDipilih = {};
+
+    function toggleGejala(id) {
+        const card = document.getElementById(`gejala-${id}`);
+        const cb = document.getElementById(`cb-${id}`);
+        const kepInput = document.getElementById(`kepastian-${id}`);
+        const slider = document.getElementById(`slider-${id}`);
+
+        if (gejalaDipilih[id] !== undefined) {
+            // Deselect
+            delete gejalaDipilih[id];
+            card.classList.remove('selected');
+            cb.checked = false;
+            kepInput.disabled = true;
+        } else {
+            // Select
+            gejalaDipilih[id] = 0.6;
+            card.classList.add('selected');
+            cb.checked = true;
+            kepInput.disabled = false;
+            kepInput.value = '0.6';
+            slider.value = 0.6;
+            document.getElementById(`conf-val-${id}`).innerText = '0.6';
         }
-        
-        let optionsHtml = '';
-        kepastianOptions.forEach((opt, i) => {
-            optionsHtml += `<option value="${opt.value}" ${i === 3 ? 'selected' : ''}>${opt.label}</option>`;
-        });
-        
-        const modal = `
-            <div id="kepastianModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                <div class="bg-white rounded-xl p-6 max-w-sm w-full mx-4 shadow-xl">
-                    <h3 class="text-lg font-bold mb-4">Pilih Tingkat Kepastian</h3>
-                    <p class="text-slate-600 text-sm mb-4">Seberapa yakin Anda bahwa tanaman menunjukkan gejala ini?</p>
-                    <select id="kepastianValue" class="w-full border-2 border-slate-200 rounded-xl px-4 py-3 mb-4">
-                        ${optionsHtml}
-                    </select>
-                    <div class="flex gap-3">
-                        <button onclick="batalPilih()" class="flex-1 py-3 rounded-xl font-bold border border-slate-300 hover:bg-slate-50">Batal</button>
-                        <button onclick="konfirmasiPilih(${id})" class="flex-1 py-3 rounded-xl font-bold bg-primary text-white hover:bg-primary/90">Pilih</button>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        document.body.insertAdjacentHTML('beforeend', modal);
     }
-    
-    function batalPilih() {
-        document.getElementById('kepastianModal').remove();
+
+    function updateKeyakinan(id, val) {
+        gejalaDipilih[id] = parseFloat(val);
+        document.getElementById(`conf-val-${id}`).innerText = val;
+        document.getElementById(`kepastian-${id}`).value = val;
     }
-    
-    function konfirmasiPilih(id) {
-        const modal = document.getElementById('kepastianModal');
-        const select = modal.querySelector('#kepastianValue');
-        const value = select.value;
-        
-        const checkbox = document.querySelector(`input[name="gejala[]"][value="${id}"]`);
-        const row = document.querySelector(`.gejala-row[data-id="${id}"]`);
-        const btn = row.querySelector('.pilih-btn');
-        
-        // Add hidden input for kepastian
-        let hiddenInput = row.querySelector('input[type="hidden"]');
-        if (!hiddenInput) {
-            hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = `kepastian[${id}]`;
-            row.appendChild(hiddenInput);
-        }
-        hiddenInput.value = value;
-        
-        if (checkbox) {
-            checkbox.checked = true;
-            btn.textContent = 'Batal';
-            btn.classList.remove('border-primary', 'text-primary');
-            btn.classList.add('bg-primary', 'text-white');
-            row.classList.add('bg-green-50');
-        }
-        
-        modal.remove();
-    }
-    
-    document.querySelectorAll('.gejala-checkbox').forEach(cb => {
-        cb.addEventListener('change', function() {
-            if (this.checked) {
-                const id = this.value;
-                const btn = this.closest('tr').querySelector('.pilih-btn');
-                pilihGejala(btn, id);
-            } else {
-                const row = this.closest('tr');
-                const btn = row.querySelector('.pilih-btn');
-                btn.textContent = 'Pilih';
-                btn.classList.remove('bg-primary', 'text-white');
-                btn.classList.add('border-primary', 'text-primary');
-                row.classList.remove('bg-green-50');
-                const hiddenInput = row.querySelector('input[type="hidden"]');
-                if (hiddenInput) hiddenInput.remove();
-            }
-        });
-    });
-    
+
     function scrollToKategori(kategori) {
         const element = document.getElementById('kategori-' + kategori);
         if (element) {
@@ -260,15 +222,25 @@
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
     }
-    
+
     function resetForm() {
-        document.querySelectorAll('.gejala-checkbox').forEach(cb => cb.checked = false);
-        document.querySelectorAll('.pilih-btn').forEach(btn => {
-            btn.textContent = 'Pilih';
-            btn.classList.remove('bg-primary', 'text-white');
-            btn.classList.add('border-primary', 'text-primary');
+        Object.keys(gejalaDipilih).forEach(id => {
+            const card = document.getElementById(`gejala-${id}`);
+            const cb = document.getElementById(`cb-${id}`);
+            const kepInput = document.getElementById(`kepastian-${id}`);
+            if (card) card.classList.remove('selected');
+            if (cb) cb.checked = false;
+            if (kepInput) kepInput.disabled = true;
         });
-        document.querySelectorAll('.gejala-row').forEach(row => row.classList.remove('bg-green-50'));
+        gejalaDipilih = {};
     }
+
+    // Form validation
+    document.getElementById('gejalaForm').addEventListener('submit', function(e) {
+        if (Object.keys(gejalaDipilih).length === 0) {
+            e.preventDefault();
+            alert('Pilih setidaknya satu gejala.');
+        }
+    });
 </script>
 <?= $this->endSection() ?>
