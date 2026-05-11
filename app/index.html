@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#42493e",
+                        "on-primary": "#ffffff",
+                        "outline": "#72796e",
+                        "on-primary-fixed-variant": "#23501e",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-tertiary-container": "#abcca0",
+                        "on-background": "#191c1d",
+                        "tertiary-fixed-dim": "#afd0a4",
+                        "on-primary-container": "#9dd090",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#bcf0ae",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#2d5a27",
+                        "surface-tint": "#3b6934",
+                        "secondary-fixed": "#ffe16d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container": "#edeeef",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#324e2c",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed": "#062105",
+                        "on-secondary-container": "#6e5c00",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary": "#24401f",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed-variant": "#544600",
+                        "secondary-fixed-dim": "#e9c400",
+                        "surface-bright": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#caecbe",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#154212",
+                        "inverse-primary": "#a1d494",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#221b00",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#002201",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fcd400",
+                        "background": "#f8f9fa",
+                        "secondary": "#705d00",
+                        "tertiary-container": "#3b5735",
+                        "surface": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "outline-variant": "#c2c9bb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "title-sm": ["Manrope"],
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "title-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pest-card-shadow {
+            box-shadow: 0px 4px 12px rgba(45, 90, 39, 0.05);
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-50 bg-zinc-50 border-r border-zinc-200 w-64 hidden md:flex">
+<div class="p-6">
+<h1 class="text-lg font-black text-green-800">Sistem Pakar</h1>
+<p class="font-manrope text-[10px] uppercase tracking-widest text-zinc-500 font-semibold">Precision Agriculture</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-all duration-200 ease-in-out font-manrope text-sm font-semibold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-all duration-200 ease-in-out font-manrope text-sm font-semibold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+                Diagnosis
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-green-700 border-r-4 border-green-700 bg-green-50/50 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="potted_plant">potted_plant</span>
+                Pest Catalog
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-all duration-200 ease-in-out font-manrope text-sm font-semibold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+                Land Management
+            </a>
+</nav>
+<div class="p-4 mt-auto border-t border-zinc-200">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-manrope text-sm font-bold mb-4 hover:opacity-90 transition-opacity">
+                Start Diagnosis
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-zinc-900 text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+                    Help Center
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-zinc-900 text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign Out
+                </a>
+</div>
+</div>
+</aside>
+<main class="md:ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full h-16 px-6 sticky top-0 z-40 bg-white border-b border-zinc-200">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-zinc-100 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary" placeholder="Cari hama atau penyakit..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<button class="p-2 text-zinc-500 hover:bg-zinc-100 rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-zinc-100 rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-zinc-200">
+<img alt="Agronomist Profile" data-alt="A professional medical agronomist portrait, wearing a clean white lab coat and a subtle green tie, set against a blurred background of a high-tech agricultural research facility. The lighting is bright and corporate, emphasizing authority and scientific precision. The style is minimalist and clean, consistent with modern corporate headshots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDplaFI7EHbl3F6y2J5wewkt2fDhyCyAZ7yFvL3tphQ4V29hOXBP-Rnx8NDNoEjSmzjp2hzYUg75JaSLlhO1Sd50vEzIxmQLCiciVoPrqHsT8H7LCQRLGxJZ9SRgJ41ZCuYaEWkViWss7PleeW2mG8Kn4jpAiuWQ1XZJ2qZC4lvMiHKVmIIbcOmk6xi5258hj42E3cQM3W29cUJN8_G7T8A9_DnO_lWHzDemq8r5BCLcaB5hVAOVV-GRmvhcaQyc2HWrs3LhtS6t-k"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-md lg:p-lg max-w-container-max mx-auto">
+<!-- Hero Header -->
+<div class="mb-md">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Katalog Hama &amp; Penyakit</h2>
+<p class="text-on-surface-variant font-body-md max-w-2xl">
+                    Referensi komprehensif untuk identifikasi visual, gejala, dan solusi penanganan tanaman jagung berbasis data agronomis terkini.
+                </p>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-2 mb-md">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-label-bold text-label-bold">Semua</button>
+<button class="px-6 py-2 bg-white border border-outline text-on-surface rounded-full font-label-bold text-label-bold hover:bg-surface-container transition-colors">Penyakit Jamur</button>
+<button class="px-6 py-2 bg-white border border-outline text-on-surface rounded-full font-label-bold text-label-bold hover:bg-surface-container transition-colors">Hama Serangga</button>
+<button class="px-6 py-2 bg-white border border-outline text-on-surface rounded-full font-label-bold text-label-bold hover:bg-surface-container transition-colors">Defisiensi Nutrisi</button>
+<button class="px-6 py-2 bg-white border border-outline text-on-surface rounded-full font-label-bold text-label-bold hover:bg-surface-container transition-colors">Bakteri</button>
+</div>
+<!-- Catalog Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
+<!-- Card 1: Bulai (Large Bento Style) -->
+<article class="lg:col-span-8 bg-white border border-zinc-200 rounded-xl overflow-hidden pest-card-shadow flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up macro shot of corn leaves exhibiting clear symptoms of Downy Mildew, with prominent chlorotic yellow-white streaks running parallel to the leaf veins. The lighting is natural and crisp, highlighting the powdery fungal texture. The overall aesthetic is scientific and clinical, focusing on diagnostic clarity within a lush green corn field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwEKlapTQ7GgruNIowjT3xPj0Ybznyvdi45qwFCdZRno0nDUjLr3Sqo6_oCTgFWkcah9p53NS7uRGd8_Ntb209QOkjNoY6rYH0Mcichb75SNuxYlhL4HiQVv4GeXvZlXV6OA_FrruQ6AoNgp5KUW38DYttQdM-x4JhWHJVwqxXZAT7or1PC5X9tqCuNdiS5WYfc2EjeYI-Ogdnlp6-NrdDAgeHWCRjgQlT19v0Z5wSut1vLstDuFsLIYfHxHlNLK8M_iSiyJs1NFI"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1 bg-error text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs" data-icon="report_problem">report_problem</span>
+                                Kritis
+                            </span>
+</div>
+</div>
+<div class="md:w-1/2 p-6 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Bulai (Downy Mildew)</h3>
+<p class="text-zinc-600 text-sm mb-4">Disebabkan oleh jamur Peronosclerospora maydis. Penyakit paling merugikan yang dapat menyebabkan gagal panen hingga 100%.</p>
+<div class="space-y-4">
+<div>
+<h4 class="font-label-bold text-label-bold text-primary flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+                                        GEJALA UTAMA
+                                    </h4>
+<ul class="text-sm text-zinc-600 list-disc list-inside">
+<li>Garis-garis klorotik kuning memanjang</li>
+<li>Lapisan putih seperti tepung di bawah daun</li>
+<li>Tanaman kerdil dan daun melintir</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<button class="w-full border border-primary text-primary py-2 rounded font-manrope text-sm font-bold hover:bg-green-50 transition-colors">
+                                Lihat Rekomendasi Penanganan
+                            </button>
+</div>
+</div>
+</article>
+<!-- Card 2: Ulat Grayak (Square style) -->
+<article class="lg:col-span-4 bg-white border border-zinc-200 rounded-xl overflow-hidden pest-card-shadow flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Detailed macro view of a Spodoptera frugiperda larva, known as Fall Armyworm, feeding on a young corn plant's whorl. The image clearly shows the ragged holes in the leaves and the caterpillar's distinct markings. The lighting is bright and even, capturing the texture of the pest and the damaged plant tissue in a modern, documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHar0bNrfcoEf6KsV6wfGfaLSjUCvr-JwzrVnTN-p0JMw3Xw5hJNAsGFeKKmrOoauisuEV35WC04wNuhcv-g7zGR6i2t-IW7SSj6d9v7HlALm4ornAKEOan32yRHceMW05CnHG-jlVv6dgGIaPUADggfUJFGA9dPYv0X55Ex8n_x1LcByarcY5Q-I2xtNYq77_zActD0gYYSCQ-QHPkv1ye1gFP3spgxvMc2QJF0sRxaq4hP7RNbDNKPuR3rBz2E2M0hR3_ehq8TQ"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1 bg-secondary-container text-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+                                Waspada
+                            </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-sm text-title-sm text-primary mb-2">Ulat Grayak (FAW)</h3>
+<p class="text-zinc-600 text-sm mb-4">Hama invasif yang menyerang titik tumbuh tanaman. Identik dengan bekas gigitan yang tidak beraturan.</p>
+<div class="mb-4">
+<h4 class="font-label-bold text-label-bold text-primary flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="spa">spa</span>
+                                SOLUSI CEPAT
+                            </h4>
+<p class="text-sm text-zinc-600 italic">Gunakan pestisida hayati berbasis jamur Beauveria bassiana pada malam hari.</p>
+</div>
+<div class="mt-auto">
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                Detail Lengkap <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Karat Daun -->
+<article class="lg:col-span-4 bg-white border border-zinc-200 rounded-xl overflow-hidden pest-card-shadow flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Extreme close-up of a corn leaf covered in small, raised pustules of cinnamon-brown leaf rust. The texture is rough and scaly against the vibrant green of the healthy leaf portions. The image is shot with a shallow depth of field to emphasize the fungal structure, following a clinical and professional aesthetic suitable for agricultural diagnostics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBmMH_8ElCrAWZU8WOEzceENBeO-8USX94REpTlgrzrj6PLKOt_eJQY1k4Ybjih8kS_U4gzVEhjzJHor3t-1eJ4UQzdX0bi9QZTK77U8s12y79Ety-UHbVZu13gPly9aVeJyTs3qUFZh6iu4OkMU0lzrP-P2jOHO1lB7-IiROzsMlYdlHqgLZ_35Kbc6IVhGx3Xv3EOxoveds9cXJl1hRGPKhS8EwXGJ0T4AaY2_X_N_kbB_grBPtG_6JgQDlTtOjmIN8BHEDR6LA"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1 bg-on-tertiary-fixed-variant text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+                                Sedang
+                            </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-sm text-title-sm text-primary mb-2">Karat Daun</h3>
+<p class="text-zinc-600 text-sm mb-4">Ditandai dengan bintil-bintil coklat kemerahan seperti karat pada permukaan daun tua.</p>
+<div class="mt-auto">
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                Detail Lengkap <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Hawar Daun -->
+<article class="lg:col-span-4 bg-white border border-zinc-200 rounded-xl overflow-hidden pest-card-shadow flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Visual representation of Northern Corn Leaf Blight, showing large, cigar-shaped necrotic lesions on a mature corn leaf. The lesions are tan-colored with defined borders. The background consists of a sun-drenched corn field, creating a high-contrast, professional image that emphasizes the visual markers needed for accurate field identification." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8P3B-FdyuIvE-JLaKBYzVJMA1rJapST5gKnRkFBfTMRnFxC9sBr_R2GQ2_T_dU-9fRb2XsNBic-fIOpamN6BVlKzzOkKGDQODcjVOWhDwJphBoZXY1rjlNuyP08he3WOUBC61mvI1M6hIb48kD4scAYudLxHugSWQUa8zMP6XvP5rkz0H6DXgS58INB4YOWBtV-lXhYBsCqfxxCnHBfhpmQhBjBLvfX4jN-rNWRvL99IFF4p7m2nTOZuZ3u_rgefb4YNZw3mV3jU"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-sm text-title-sm text-primary mb-2">Hawar Daun</h3>
+<p class="text-zinc-600 text-sm mb-4">Bercak besar berbentuk perahu (cerutu) berwarna cokelat abu-abu pada helaian daun.</p>
+<div class="mt-auto">
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                Detail Lengkap <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Busuk Batang -->
+<article class="lg:col-span-4 bg-white border border-zinc-200 rounded-xl overflow-hidden pest-card-shadow flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A cross-section of a corn stalk showing internal rot and discoloration caused by stalk rot disease. The interior tissues appear pithy and darkened. The lighting is professional studio-quality, highlighting the internal damage with high clarity against a clean, neutral background. The style is educational and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASx8_WAMNSQA1jIo1EaYm1Cb1SjgNobaoKAafYwbo6tXzacbim5xd9pfJCngGwjdXRJI0JKRVFkgTa1cOgaxylTgbPLOXxGMG7H_K0P3K6rb1E9JqfSBeqR-ovBBxfz48mpU1dQK_dagxG_JENbEwn_3C9zWbwWTWxmqbrBGArLcRxYn9x2CRgQg2Fh--pg2jD1PjoBx_PB8TRPFqFQTVuZYUxu3F_cnFTTXcZiXYxacnvpweXWnX0pUZaWI0BIFBAWwc3U6Qb7a8"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1 bg-error text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs" data-icon="report_problem">report_problem</span>
+                                Kritis
+                            </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-title-sm text-title-sm text-primary mb-2">Busuk Batang</h3>
+<p class="text-zinc-600 text-sm mb-4">Batang menjadi lunak dan mudah rebah. Biasanya terjadi saat pengisian biji.</p>
+<div class="mt-auto">
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                Detail Lengkap <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination/Footer Stats -->
+<div class="mt-md flex flex-col md:flex-row justify-between items-center bg-white p-4 rounded-lg border border-zinc-200 gap-4">
+<div class="flex items-center gap-4">
+<div class="text-center border-r border-zinc-200 pr-4">
+<p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Total Katalog</p>
+<p class="text-xl font-display-lg text-primary">24</p>
+</div>
+<div class="text-center pr-4">
+<p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Update Terbaru</p>
+<p class="text-sm font-semibold text-zinc-700">12 Okt 2023</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-zinc-200 rounded text-zinc-500 hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded text-sm font-bold">1</button>
+<button class="px-3 py-1 border border-zinc-200 rounded text-zinc-700 text-sm hover:bg-zinc-100 transition-colors">2</button>
+<button class="px-3 py-1 border border-zinc-200 rounded text-zinc-700 text-sm hover:bg-zinc-100 transition-colors">3</button>
+<button class="px-3 py-1 border border-zinc-200 rounded text-zinc-500 hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

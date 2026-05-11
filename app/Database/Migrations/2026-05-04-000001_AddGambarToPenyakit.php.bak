@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class AddGambarToPenyakit extends Migration
+{
+    public function up()
+    {
+        $fields = [
+            'gambar' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
+                'null'       => true,
+                'after'      => 'solusi'
+            ],
+        ];
+        $this->forge->addColumn('penyakit', $fields);
+    }
+
+    public function down()
+    {
+        $this->forge->dropColumn('penyakit', 'gambar');
+    }
+}

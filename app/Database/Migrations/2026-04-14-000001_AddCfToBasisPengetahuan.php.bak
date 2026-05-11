@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class AddCfToBasisPengetahuan extends Migration
+{
+    public function up()
+    {
+        $this->forge->addColumn('basis_pengetahuan', [
+            'cf' => [
+                'type' => 'FLOAT',
+                'constraint' => '3,2',
+                'default' => 0.50,
+                'after' => 'id_gejala',
+            ],
+        ]);
+    }
+
+    public function down()
+    {
+        $this->forge->dropColumn('basis_pengetahuan', 'cf');
+    }
+}

@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class AddGambarToPenyakit extends Migration
+{
+    public function up()
+    {
+        // Check if column doesn't exist
+        $fields = $this->db->getFieldData('penyakit');
+        $exists = false;
+        foreach ($fields as $f) {
+            if ($f->name === 'gambar') {
+                $exists = true;
+                break;
+            }
+        }
+        
+        if (!$exists) {
+            $this->db->query('ALTER TABLE penyakit ADD COLUMN gambar VARCHAR(255) DEFAULT NULL AFTER solusi');
+        }
+    }
+
+    public function down()
+    {
+        $this->db->query('ALTER TABLE penyakit DROP COLUMN gambar');
+    }
+}
