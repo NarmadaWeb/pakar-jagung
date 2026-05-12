@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net" modified="2024-05-12T00:00:00.000Z" agent="Mozilla/5.0" version="24.3.1" type="device">
+  <diagram name="Activity Diagram - Library" id="diagram-library">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pool1" value="" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="600" height="400" as="geometry" /></mxCell>
+        <mxCell id="lane_actor" value="Admin" style="swimlane;html=1;startSize=20;" vertex="1" parent="pool1"><mxGeometry width="300" height="400" as="geometry" /></mxCell>
+        <mxCell id="lane_system" value="Sistem" style="swimlane;html=1;startSize=20;" vertex="1" parent="pool1"><mxGeometry x="300" width="300" height="400" as="geometry" /></mxCell>
+
+        <mxCell id="n_start" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_actor"><mxGeometry x="135" y="40" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="n_pilih_menu" value="Pilih menu Library" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="lane_actor"><mxGeometry x="80" y="100" width="140" height="40" as="geometry" /></mxCell>
+        <mxCell id="s_tampil_data" value="Menampilkan Halaman Library" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="lane_system"><mxGeometry x="80" y="100" width="140" height="40" as="geometry" /></mxCell>
+        <mxCell id="n_end" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_actor"><mxGeometry x="135" y="180" width="30" height="30" as="geometry" /></mxCell>
+
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="pool1" source="n_start" target="n_pilih_menu"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="pool1" source="n_pilih_menu" target="s_tampil_data"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="pool1" source="s_tampil_data" target="n_end"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
