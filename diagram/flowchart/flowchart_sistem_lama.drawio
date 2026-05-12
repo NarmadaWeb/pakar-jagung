@@ -7,7 +7,7 @@
                 <mxCell id="mulai" value="Mulai" style="shape=mxgraph.flowchart.terminator;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" vertex="1" parent="1">
                     <mxGeometry x="390" y="30" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="petani_menemukan" value="Petani Menemukan&#10;Masalah pada Tanaman Kangkung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" vertex="1" parent="1">
+                <mxCell id="petani_menemukan" value="Petani Menemukan&#10;Masalah pada Tanaman Jagung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" vertex="1" parent="1">
                     <mxGeometry x="360" y="110" width="180" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="mengamati" value="Mengamati Gejala&#10;Secara Manual" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" vertex="1" parent="1">
