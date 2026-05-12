@@ -6,64 +6,64 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
         <mxCell id="main_window" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="1000" height="600" as_="geometry"/>
+          <mxGeometry x="40" y="40" width="1000" height="600" as="geometry"/>
         </mxCell>
         <mxCell id="top_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="1000" height="50" as_="geometry"/>
+          <mxGeometry x="40" y="40" width="1000" height="50" as="geometry"/>
         </mxCell>
         <mxCell id="admin_text" value="Administrator" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="50" width="100" height="30" as_="geometry"/>
+          <mxGeometry x="50" y="50" width="100" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="profile_circle" value="profil" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="980" y="45" width="40" height="40" as_="geometry"/>
+          <mxGeometry x="980" y="45" width="40" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="sidebar" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="90" width="150" height="550" as_="geometry"/>
+          <mxGeometry x="40" y="90" width="150" height="550" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Dashboard" value="Dashboard" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="110" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="110" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Gejala" value="Data Gejala" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="150" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="150" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Penyakit" value="Data Penyakit" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="190" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="190" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Basis_Pengetahuan" value="Data Basis Pengetahuan" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="230" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="230" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Diagnosa" value="Data Diagnosa" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="270" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="270" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Laporan" value="Data Laporan" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fillColor=#f5f5f5;" vertex="1" parent="1">
-          <mxGeometry x="45" y="310" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="310" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Data_Pengguna" value="Data Pengguna" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="350" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="350" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Pengaturan" value="Pengaturan" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="390" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="390" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="menu_Keluar" value="Keluar" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="45" y="430" width="140" height="30" as_="geometry"/>
+          <mxGeometry x="45" y="430" width="140" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="breadcrumb_box" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="210" y="110" width="810" height="60" as_="geometry"/>
+          <mxGeometry x="210" y="110" width="810" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="breadcrumb_title" value="Data Laporan" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="220" y="115" width="200" height="20" as_="geometry"/>
+          <mxGeometry x="220" y="115" width="200" height="20" as="geometry"/>
         </mxCell>
         <mxCell id="breadcrumb_line" value="" style="endArrow=none;html=1;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as_="geometry">
-            <mxPoint x="220" y="140" as_="sourcePoint"/>
-            <mxPoint x="1000" y="140" as_="targetPoint"/>
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="140" as="sourcePoint"/>
+            <mxPoint x="1000" y="140" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
         <mxCell id="breadcrumb_icon" value="🏠 /Data Laporan" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="220" y="145" width="200" height="20" as_="geometry"/>
+          <mxGeometry x="220" y="145" width="200" height="20" as="geometry"/>
         </mxCell>
         <mxCell id="setting_content" value="Data Laporan Content Here" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" vertex="1" parent="1">
-          <mxGeometry x="400" y="300" width="400" height="50" as_="geometry"/>
+          <mxGeometry x="400" y="300" width="400" height="50" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>
