@@ -78,12 +78,6 @@
                     <span class="font-medium">Dashboard</span>
                 </a>
                 
-                <!-- Data Pengguna -->
-                <a href="<?= base_url('admin/pengguna') ?>" class="<?= str_starts_with($currentUri, 'admin/pengguna') ? 'bg-primary/10 text-primary' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700' ?> flex items-center gap-3 px-4 py-3 rounded-lg transition-colors" onclick="closeSidebarOnMobile()">
-                    <span class="material-symbols-outlined">group</span>
-                    <span class="font-medium">Data Pengguna</span>
-                </a>
-                
                 <!-- Riwayat Sistem -->
                 <a href="<?= base_url('admin/riwayat') ?>" class="<?= str_starts_with($currentUri, 'admin/riwayat') ? 'bg-primary/10 text-primary' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700' ?> flex items-center gap-3 px-4 py-3 rounded-lg transition-colors" onclick="closeSidebarOnMobile()">
                     <span class="material-symbols-outlined">history</span>

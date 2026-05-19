@@ -111,7 +111,7 @@
     
     <main class="md:ml-72 min-h-screen bg-background-light dark:bg-background-dark pt-16 md:pt-0">
         <!-- Content Area -->
-        <div class="p-4 md:p-6 max-w-full mx-auto">
+        <div class="p-4 md:p-6 w-full">
             <?= $this->renderSection('content') ?>
         </div>
     </main>

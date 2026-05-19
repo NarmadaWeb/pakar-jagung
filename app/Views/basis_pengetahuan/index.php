@@ -56,10 +56,10 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex justify-end gap-2">
-                            <a href="<?= base_url('basis-pengetahuan/edit/' . $r['id_rule']) ?>" class="text-blue-600 hover:text-blue-800 p-1">
+                            <a href="<?= base_url('basis-pengetahuan/edit/' . $r['id']) ?>" class="text-blue-600 hover:text-blue-800 p-1">
                                 <span class="material-symbols-outlined">edit</span>
                             </a>
-                            <button onclick="confirmDelete('<?= base_url('basis-pengetahuan/delete/' . $r['id_rule']) ?>')" class="text-red-600 hover:text-red-800 p-1">
+                            <button onclick="confirmDelete('<?= base_url('basis-pengetahuan/delete/' . $r['id']) ?>')" class="text-red-600 hover:text-red-800 p-1">
                                 <span class="material-symbols-outlined">delete</span>
                             </button>
                         </div>

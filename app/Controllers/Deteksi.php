@@ -139,9 +139,9 @@ class Deteksi extends BaseController
         });
 
         // Simpan selalu ke riwayat, bahkan jika 0%
-        $penyakitTerbaik = $hasil[0] ?? ['penyakit' => ['nama_penyakit' => 'Tidak Ada Kecocokan', 'kode_penyakit' => '-', 'solusi' => ''], 'cf_combine' => 0, 'persentase' => 0];
+        $penyakitTerbaik = $hasil[0] ?? ['penyakit' => ['nama_penyakit' => 'Tidak Ada Kecocokan', 'kode_penyakit' => '-', 'solusi' => ''], 'cf_combine' => 0, 'persentase' => 0, 'detail_perhitungan' => []];
         
-        $detailGejalaJson = json_encode($detailPerhitungan);
+        $detailGejalaJson = json_encode($penyakitTerbaik['detail_perhitungan'] ?? []);
         $gejalaDipilihJson = json_encode(array_map(function($id) use ($gejalaMap) {
             return [
                 'id' => $id,

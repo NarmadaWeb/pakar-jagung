@@ -12,7 +12,6 @@
                 <h4 class="text-white font-bold">Navigasi</h4>
                 <a class="hover:text-primary transition-colors" href="<?= base_url('/') ?>">Beranda</a>
                 <a class="hover:text-primary transition-colors" href="<?= base_url('library') ?>">Library</a>
-                <a class="hover:text-primary transition-colors" href="<?= base_url('riwayat') ?>">Riwayat</a>
                 <a class="hover:text-primary transition-colors" href="<?= base_url('tentang') ?>">Tentang</a>
             </div>
             <div class="flex flex-col gap-4">

@@ -67,8 +67,10 @@ class Pages extends BaseController
     {
         $db = Database::connect();
         
-        $riwayat = $db->table('riwayat_diagnosa')
-            ->orderBy('tanggal_diagnosa', 'DESC')
+        $riwayat = $db->table('riwayat_diagnosa r')
+            ->select('r.*, p.gambar as gambar_penyakit')
+            ->join('penyakit p', 'p.nama_penyakit = r.nama_penyakit', 'left')
+            ->orderBy('r.tanggal_diagnosa', 'DESC')
             ->get()
             ->getResultArray();
         
@@ -271,30 +273,6 @@ class Pages extends BaseController
         return view('pengguna/dashboard', $data);
     }
 
-    public function pengguna()
-    {
-        if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
-            return redirect()->to('login-admin')->with('error', 'Silakan login sebagai admin');
-        }
-
-        $userModel = new \App\Models\UserModel();
-        $data['pengguna'] = $userModel->where('role', 'pengguna')->orderBy('created_at', 'DESC')->findAll();
-        
-        return view('admin/pengguna', $data);
-    }
-
-    public function deletePengguna($id)
-    {
-        if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
-            return redirect()->to('login-admin')->with('error', 'Silakan login sebagai admin');
-        }
-
-        $userModel = new \App\Models\UserModel();
-        $userModel->delete($id);
-        
-        return redirect()->to('admin/pengguna')->with('success', 'Pengguna berhasil dihapus');
-    }
-
     public function adminLibrary()
     {
         if (!session()->get('isLoggedIn') || session()->get('role') !== 'admin') {
@@ -329,13 +307,12 @@ class Pages extends BaseController
         $tanggalAkhir = service('request')->getGet('tanggal_akhir');
         
         $query = $db->table('riwayat_diagnosa r')
-            ->select('r.*, u.nama_lengkap, u.email')
-            ->join('users u', 'u.id = r.id_user', 'left');
+            ->select('r.*, p.gambar, p.tindakan_segera, p.protokol_pengobatan, p.strategi_pencegahan')
+            ->join('penyakit p', 'p.nama_penyakit = r.nama_penyakit', 'left');
         
         if ($cari) {
             $query->groupStart()
-                ->like('u.nama_lengkap', $cari)
-                ->orLike('u.email', $cari)
+                ->like('r.nama_user', $cari)
                 ->orLike('r.nama_penyakit', $cari)
                 ->groupEnd();
         }

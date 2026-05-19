@@ -34,9 +34,8 @@
                     <span class="material-symbols-outlined text-3xl">bug_report</span>
                 </div>
             </div>
-            <div class="mt-4 pt-4 border-t border-white/20 flex items-center justify-between text-sm">
+            <div class="mt-4 pt-4 border-t border-white/20 text-sm">
                 <span class="text-white/70">Data penyakit</span>
-                <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </div>
         </div>
 
@@ -50,9 +49,8 @@
                     <span class="material-symbols-outlined text-3xl">healing</span>
                 </div>
             </div>
-            <div class="mt-4 pt-4 border-t border-white/20 flex items-center justify-between text-sm">
+            <div class="mt-4 pt-4 border-t border-white/20 text-sm">
                 <span class="text-white/70">Data gejala</span>
-                <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </div>
         </div>
 
@@ -66,9 +64,8 @@
                     <span class="material-symbols-outlined text-3xl">library_books</span>
                 </div>
             </div>
-            <div class="mt-4 pt-4 border-t border-white/20 flex items-center justify-between text-sm">
+            <div class="mt-4 pt-4 border-t border-white/20 text-sm">
                 <span class="text-white/70">Basis pengetahuan</span>
-                <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </div>
         </div>
     </div>

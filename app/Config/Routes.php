@@ -49,10 +49,6 @@ $routes->get('admin', 'Pages::admin', ['filter' => 'adminauth']);
 $routes->get('admin/login', 'Auth::loginAdmin');
 $routes->post('admin/login', 'Auth::prosesLoginAdmin');
 
-// ─── Admin: Kelola Pengguna ──────────────────────────────────
-$routes->get('admin/pengguna', 'Pages::pengguna', ['filter' => 'adminauth']);
-$routes->get('admin/pengguna/delete/(:num)', 'Pages::deletePengguna/$1', ['filter' => 'adminauth']);
-
 // ─── Admin: Riwayat Sistem ───────────────────────────────────
 $routes->get('admin/riwayat', 'Pages::adminRiwayat', ['filter' => 'adminauth']);
 $routes->get('admin/riwayat/hapus/(:num)', 'Pages::hapusAdminRiwayat/$1', ['filter' => 'adminauth']);

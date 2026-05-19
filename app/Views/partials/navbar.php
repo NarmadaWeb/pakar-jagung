@@ -13,7 +13,6 @@ $isHome = ($currentUri === '' || $currentUri === '/');
         <nav class="flex items-center gap-10">
             <a class="<?= $currentUri === '' || $currentUri === '/' ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('/') ?>">Beranda</a>
             <a class="<?= str_starts_with($currentUri, 'library') ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('library') ?>">Library</a>
-            <a class="<?= str_starts_with($currentUri, 'riwayat') ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('riwayat') ?>">Riwayat</a>
             <a class="<?= $currentUri === 'tentang' ? 'text-primary border-b-2 border-primary' : 'text-slate-700 dark:text-slate-300' ?> text-sm font-semibold hover:text-primary transition-colors" href="<?= base_url('tentang') ?>">Tentang</a>
         </nav>
         <div class="flex items-center gap-3">
@@ -47,7 +46,6 @@ $isHome = ($currentUri === '' || $currentUri === '/');
 <nav class="flex-1 p-6 flex flex-col gap-2">
         <a class="<?= $currentUri === '' || $currentUri === '/' ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('/') ?>">Beranda</a>
         <a class="<?= str_starts_with($currentUri, 'library') ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('library') ?>">Library</a>
-        <a class="<?= str_starts_with($currentUri, 'riwayat') ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('riwayat') ?>">Riwayat</a>
         <a class="<?= $currentUri === 'tentang' ? 'text-primary bg-primary/5' : 'text-slate-700' ?> text-lg font-semibold px-4 py-3 rounded-lg hover:bg-slate-50" href="<?= base_url('tentang') ?>">Tentang</a>
     </nav>
     <div class="p-6 border-t border-slate-100">

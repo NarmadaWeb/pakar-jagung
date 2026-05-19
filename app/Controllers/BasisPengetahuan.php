@@ -64,7 +64,7 @@ class BasisPengetahuan extends BaseController
         }
 
         $db = \Config\Database::connect();
-        $db->table('basis_pengetahuan')->delete(['id_rule' => $id]);
+        $db->table('basis_pengetahuan')->delete(['id' => $id]);
         
         return redirect()->to('basis-pengetahuan')->with('success', 'Aturan berhasil dihapus!');
     }
@@ -80,14 +80,14 @@ class BasisPengetahuan extends BaseController
         
         $data['penyakit'] = $db->table('penyakit')->get()->getResultArray();
         $data['gejala'] = $db->table('gejala')->get()->getResultArray();
-        $data['rule'] = $db->table('basis_pengetahuan')->where('id_rule', $id)->get()->getRowArray();
+        $data['rule'] = $db->table('basis_pengetahuan')->where('id', $id)->get()->getRowArray();
         
         if (!$data['rule']) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Aturan tidak ditemukan');
         }
         
         if ($this->request->getMethod() === 'POST') {
-            $db->table('basis_pengetahuan')->where('id_rule', $id)->update([
+            $db->table('basis_pengetahuan')->where('id', $id)->update([
                 'id_penyakit' => $this->request->getPost('id_penyakit'),
                 'id_gejala' => $this->request->getPost('id_gejala'),
                 'cf' => $this->request->getPost('cf') ?: 0.50,

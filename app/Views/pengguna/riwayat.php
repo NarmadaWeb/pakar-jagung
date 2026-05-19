@@ -135,33 +135,31 @@ function searchRiwayat() {
         <?php foreach ($riwayatList as $r): ?>
         <?php if (empty($r['nama_penyakit'])) continue; ?>
         
-        <?php 
-        $keyakinan = 'Rendah';
-        if ($r['persentase'] >= 75) $keyakinan = 'Sangat Kuat';
-        elseif ($r['persentase'] >= 50) $keyakinan = 'Kuat';
-        elseif ($r['persentase'] >= 25) $keyakinan = 'Sedang';
-        ?>
-          
-        <a href="<?= base_url('riwayat/detail/' . $r['id_riwayat']) ?>" class="riwayat-card block bg-white hover:bg-slate-50 border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all cursor-pointer">
-            <div class="flex justify-between items-start mb-4">
-                <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">psychology</span>
-                    <span class="text-xs font-semibold text-slate-500"><?= date('d M Y', strtotime($r['tanggal_diagnosa'])) ?></span>
+        <a href="<?= base_url('riwayat/detail/' . $r['id_riwayat']) ?>" class="riwayat-card block relative overflow-hidden rounded-xl p-5 shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-200 bg-white">
+            <?php $textClass = 'text-slate-900'; ?>
+            <?php $mutedClass = 'text-slate-500'; ?>
+            <?php $iconClass = 'text-primary'; ?>
+            <div class="relative z-10">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined <?= $iconClass ?>">psychology</span>
+                        <span class="text-xs font-semibold <?= $mutedClass ?>"><?= date('d M Y', strtotime($r['tanggal_diagnosa'])) ?></span>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500 text-white">
+                        <?= $r['persentase'] ?>%
+                    </span>
                 </div>
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    <?= $r['persentase'] ?>%
-                </span>
-            </div>
-            
-            <h3 class="text-lg font-bold text-slate-900 mb-1"><?= esc($r['nama_penyakit']) ?></h3>
-            <p class="text-sm text-slate-500 mb-4 flex items-center gap-1">
-                <span class="material-symbols-outlined text-sm">person</span>
-                <?= esc($r['nama_user'] ?? 'Pengguna Anonim') ?>
-            </p>
-            
-            <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-sm">
-                <span class="text-primary font-medium hover:underline">Lihat Detail</span>
-                <span class="material-symbols-outlined text-slate-400">arrow_forward</span>
+                
+                <h3 class="text-lg font-bold <?= $textClass ?> mb-1"><?= esc($r['nama_penyakit']) ?></h3>
+                <p class="text-sm <?= $mutedClass ?> mb-4 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm <?= $iconClass ?>">person</span>
+                    <?= esc($r['nama_user'] ?? 'Pengguna Anonim') ?>
+                </p>
+                
+                <div class="mt-4 pt-4 border-t border-slate-200 flex justify-between items-center text-sm">
+                    <span class="text-primary font-medium hover:underline">Lihat Detail</span>
+                    <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                </div>
             </div>
         </a>
         <?php endforeach; ?>

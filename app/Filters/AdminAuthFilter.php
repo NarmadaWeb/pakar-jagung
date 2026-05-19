@@ -11,11 +11,11 @@ class AdminAuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu');
+            return redirect()->to('/login-admin')->with('error', 'Silakan login terlebih dahulu');
         }
 
         if (session()->get('role') !== 'admin') {
-            return redirect()->to('/dashboard')->with('error', 'Akses admin diperlukan');
+            return redirect()->to('/')->with('error', 'Akses admin diperlukan');
         }
     }
 

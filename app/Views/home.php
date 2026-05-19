@@ -51,7 +51,7 @@
                 <div class="flex flex-col gap-2">
                     <h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Deteksi Cepat & Akurat</h3>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Deteksi penyakit tanaman jagung dengan memilih gejala yang terlihat. Sistem akan menganalisis dan memberikan hasil diagnosa dalam hitungan detik.
+                        Pilih gejala yang terlihat pada tanaman jagung Anda, sistem akan mendeteksi penyakit dengan metode Certainty Factor dan memberikan hasil diagnosa dalam hitungan detik.
                     </p>
                 </div>
             </div>
@@ -61,9 +61,9 @@
                     <span class="material-symbols-outlined text-3xl">menu_book</span>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Basis Pengetahuan</h3>
+                    <h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Database Penyakit Terlengkap</h3>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Akses ensiklopedia penyakit jagung terlengkap, lengkap dengan gejala dan definisi penyakit.
+                        Akses informasi lengkap 13+ penyakit tanaman jagung dengan gejala, penyebab, solusi penanganan, dan tindakan pencegahan.
                     </p>
                 </div>
             </div>
@@ -73,9 +73,9 @@
                     <span class="material-symbols-outlined text-3xl">psychology</span>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Konsultasi Ahli</h3>
+                    <h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Solusi Penanganan</h3>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Dapatkan rekomendasi penanganan langsung dari pakar agrikultur untuk meminimalisir risiko kegagalan panen.
+                        Dapatkan rekomendasi penanganan dan pencegahan penyakit berdasarkan hasil diagnosa untuk menjaga produktivitas tanaman jagung Anda.
                     </p>
                 </div>
             </div>
