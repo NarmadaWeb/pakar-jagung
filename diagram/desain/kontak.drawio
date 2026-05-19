@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="electron" version="21.6.8">
+  <diagram name="Kontak" id="kontak">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="header_line" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;" vertex="0">
+          <mxGeometry x="20" y="80" width="787" height="0" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="logo.corn ai" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="40" y="20" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_0" value="Beranda" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="450" y="20" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_1" value="Library" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="520" y="20" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_2" value="Tentang" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="590" y="20" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_3" value="Diagnosa" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="660" y="20" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_4" value="Riwayat" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="730" y="20" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Kontak" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1">
+          <mxGeometry x="40" y="100" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="content" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="40" y="150" width="747" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="text" value="Konten halaman Kontak..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;verticalAlign=top;spacing=20;" vertex="1">
+          <mxGeometry x="40" y="150" width="747" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_line_top" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;" vertex="0">
+          <mxGeometry x="20" y="600" width="787" height="0" as="geometry" />
+        </mxCell>
+        <mxCell id="flogo" value="logo.corn ai" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1">
+          <mxGeometry x="40" y="620" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fdesc" value="sistem pakar cerdas untuk petani jagung&#10;indonesia yang berkelanjutan" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontSize=10;" vertex="1">
+          <mxGeometry x="40" y="650" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fmenu_title" value="menu cepat" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1">
+          <mxGeometry x="300" y="620" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fmenu_items" value="Beranda&#10;Tentang&#10;Diagnosa&#10;Library" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontSize=10;" vertex="1">
+          <mxGeometry x="300" y="650" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fcontact_title" value="Hubungi Kami" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1">
+          <mxGeometry x="550" y="620" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcontact_items" value="info@cornai.com&#10;+62800000000" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontSize=10;" vertex="1">
+          <mxGeometry x="550" y="650" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_line_bottom" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;" vertex="0">
+          <mxGeometry x="40" y="750" width="747" height="0" as="geometry" />
+        </mxCell>
+        <mxCell id="fcopy" value="2024 CornAI. all rights reserved." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontSize=10;" vertex="1">
+          <mxGeometry x="40" y="760" width="200" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

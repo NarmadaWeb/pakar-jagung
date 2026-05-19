@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="electron" version="21.6.8">
+  <diagram name="Gejala Add" id="gejala_add">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sidebar_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="0" y="0" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="sidebar_logo" value="logo.corn ai&#10;Panel Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1">
+          <mxGeometry x="10" y="20" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_0" value="Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1">
+          <mxGeometry x="10" y="120" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_1" value="Riwayat Sistem" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1">
+          <mxGeometry x="10" y="165" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_2" value="Penyakit" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1">
+          <mxGeometry x="10" y="210" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_3" value="Gejala" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;fontStyle=1;fillColor=#f0f0f0;" vertex="1">
+          <mxGeometry x="10" y="255" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_4" value="Aturan CF" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1">
+          <mxGeometry x="10" y="300" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_item_5" value="Logout" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1">
+          <mxGeometry x="10" y="345" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Form Gejala" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1">
+          <mxGeometry x="260" y="40" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="260" y="100" width="520" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="btn" value="Simpan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="280" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

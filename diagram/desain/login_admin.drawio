@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="electron" version="21.6.8">
+  <diagram name="Login Admin" id="login_admin">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="263.5" y="184.5" width="300" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="logo.corn ai" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1">
+          <mxGeometry x="263.5" y="210" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Login Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="263.5" y="250" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u_l" value="Username" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="288.5" y="290" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="u_i" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1">
+          <mxGeometry x="288.5" y="310" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p_l" value="Password" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1">
+          <mxGeometry x="288.5" y="360" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p_i" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1">
+          <mxGeometry x="288.5" y="380" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="btn" value="Masuk" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1">
+          <mxGeometry x="288.5" y="450" width="250" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
