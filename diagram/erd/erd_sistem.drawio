@@ -1,161 +1,92 @@
-<mxfile host="65bd71144e">
-    <diagram name="ERD - Sistem Pakar Jagung" id="erd-1">
-        <mxGraphModel dx="624" dy="539" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2026-05-12T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+    <diagram name="ERD - Sistem Pakar Jagung (Updated)" id="erd-1">
+        <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="title" value="ERD (Entity Relationship Diagram) - Sistem Pakar Diagnosa Penyakit Tanaman Jagung" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=20;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="150" y="20" width="800" height="30" as="geometry"/>
+
+                <!-- Title -->
+                <mxCell id="title" value="ERD (Entity Relationship Diagram) - Sistem Pakar Diagnosa Penyakit Tanaman Jagung (CI4)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=20;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="800" height="30" as="geometry"/>
                 </mxCell>
+
+                <!-- Entity: users -->
                 <mxCell id="entity-users" value="users" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
                     <mxGeometry x="40" y="100" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="users-attr1" value="id" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="130" width="180" height="25" as="geometry"/>
+                <mxCell id="users-fields" value="PK id&#xa;username&#xa;password&#xa;nama_lengkap&#xa;role&#xa;created_at&#xa;updated_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="130" width="180" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="users-attr2" value="username" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="155" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr3" value="email" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="180" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr4" value="password" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="205" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr5" value="nama_lengkap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="230" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr6" value="role" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="255" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr7" value="created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="280" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="users-attr8" value="updated_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="305" width="180" height="25" as="geometry"/>
-                </mxCell>
+
+                <!-- Entity: gejala -->
                 <mxCell id="entity-gejala" value="gejala" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
                     <mxGeometry x="320" y="100" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="gejala-attr1" value="id_gejala" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="320" y="130" width="180" height="25" as="geometry"/>
+                <mxCell id="gejala-fields" value="PK id_gejala&#xa;kode_gejala (unique)&#xa;nama_gejala&#xa;kategori" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="130" width="180" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="gejala-attr2" value="kode_gejala" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="320" y="155" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="gejala-attr3" value="nama_gejala" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="320" y="180" width="180" height="25" as="geometry"/>
-                </mxCell>
+
+                <!-- Entity: penyakit -->
                 <mxCell id="entity-penyakit" value="penyakit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
                     <mxGeometry x="600" y="100" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="penyakit-attr1" value="id_penyakit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="600" y="130" width="180" height="25" as="geometry"/>
+                <mxCell id="penyakit-fields" value="PK id_penyakit&#xa;kode_penyakit (unique)&#xa;nama_penyakit&#xa;solusi (TEXT)&#xa;gambar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="130" width="180" height="85" as="geometry"/>
                 </mxCell>
-                <mxCell id="penyakit-attr2" value="kode_penyakit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="600" y="155" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="penyakit-attr3" value="nama_penyakit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="600" y="180" width="180" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="penyakit-attr4" value="solusi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="600" y="205" width="180" height="25" as="geometry"/>
-                </mxCell>
+
+                <!-- Entity: basis_pengetahuan -->
                 <mxCell id="entity-basis" value="basis_pengetahuan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="460" y="320" width="220" height="30" as="geometry"/>
+                    <mxGeometry x="460" y="320" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="basis-attr1" value="id" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="460" y="350" width="220" height="25" as="geometry"/>
+                <mxCell id="basis-fields" value="PK id&#xa;FK id_penyakit&#xa;FK id_gejala&#xa;cf (float)&#xa;mb (float)&#xa;md (float)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="350" width="180" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="basis-attr2" value="id_penyakit (FK)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="460" y="375" width="220" height="25" as="geometry"/>
+
+                <!-- Entity: riwayat_diagnosa -->
+                <mxCell id="entity-riwayat" value="riwayat_diagnosa" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
+                    <mxGeometry x="880" y="100" width="220" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="basis-attr3" value="id_gejala (FK)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="460" y="400" width="220" height="25" as="geometry"/>
+                <mxCell id="riwayat-fields" value="PK id_riwayat&#xa;id_user (nullable)&#xa;nama_user&#xa;id_penyakit (FK)&#xa;nama_penyakit&#xa;kode_penyakit&#xa;gejala_dipilih (JSON)&#xa;detail_gejala (JSON)&#xa;cf_hasil&#xa;persentase&#xa;solusi&#xa;tanggal_diagnosa" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="130" width="220" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="basis-attr4" value="cf" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="460" y="425" width="220" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel1" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="340" y="240" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel2" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="340" y="260" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel3" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="620" y="240" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel4" value="M" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="620" y="260" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="line1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="users-attr6" target="entity-basis" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="line2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="gejala-attr3" target="entity-basis" edge="1">
-                    <mxGeometry relative="1" as="geometry">
+
+                <!-- Relationships -->
+                <!-- Penyakit to Basis Pengetahuan -->
+                <mxCell id="rel-penyakit-basis" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="entity-penyakit" target="entity-basis" edge="1">
+                    <mxGeometry x="-0.5" y="20" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
                         <Array as="points">
-                            <mxPoint x="410" y="275"/>
-                            <mxPoint x="410" y="300"/>
-                            <mxPoint x="540" y="300"/>
-                            <mxPoint x="540" y="335"/>
+                            <mxPoint x="690" y="260"/>
+                            <mxPoint x="550" y="260"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="line3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="penyakit-attr4" target="entity-basis" edge="1">
-                    <mxGeometry relative="1" as="geometry">
+
+                <!-- Gejala to Basis Pengetahuan -->
+                <mxCell id="rel-gejala-basis" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="entity-gejala" target="entity-basis" edge="1">
+                    <mxGeometry x="-0.5" y="20" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
                         <Array as="points">
-                            <mxPoint x="690" y="275"/>
-                            <mxPoint x="690" y="300"/>
-                            <mxPoint x="520" y="300"/>
-                            <mxPoint x="520" y="365"/>
+                            <mxPoint x="410" y="260"/>
+                            <mxPoint x="550" y="260"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="card1" value="(0,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#666666" parent="1" vertex="1">
-                    <mxGeometry x="250" y="320" width="50" height="20" as="geometry"/>
+
+                <!-- Penyakit to Riwayat -->
+                <mxCell id="rel-penyakit-riwayat" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;endArrow=crow;startFill=0;endFill=0" parent="1" source="entity-penyakit" target="entity-riwayat" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="830" y="115"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="card2" value="(1,1)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#666666" parent="1" vertex="1">
-                    <mxGeometry x="250" y="340" width="50" height="20" as="geometry"/>
+
+                <!-- Legend / Notes -->
+                <mxCell id="legend-box" value="Keterangan Relasi:&#xa;- basis_pengetahuan adalah tabel pivot (many-to-many) antara gejala dan penyakit.&#xa;- riwayat_diagnosa menyimpan hasil diagnosis setiap sesi.&#xa;- users menyimpan data admin untuk autentikasi." style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;fontSize=10;fontColor=#333333;spacing=5;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="500" width="350" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="card3" value="(0,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#666666" parent="1" vertex="1">
-                    <mxGeometry x="780" y="240" width="50" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="card4" value="(1,1)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#666666" parent="1" vertex="1">
-                    <mxGeometry x="780" y="260" width="50" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="ket-title" value="Keterangan Tipe Data:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="40" y="480" width="180" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="ket1" value="PK = Primary Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="50" y="510" width="150" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="ket2" value="FK = Foreign Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="50" y="535" width="150" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="ket3" value="CF = Certainty Factor (0-1)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="50" y="560" width="180" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="ket4" value="role: admin, pengguna" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="50" y="585" width="150" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="note-relasi" value="Catatan Relasi:&#xa;- Setiap penyakit dapat�didiagnosis melalui beberapa&#xa;  gejala&#xa;- Setiap gejala dapat menunjukkan beberapa&#xa;  penyakit yang berbeda&#xa;- Basis pengetahuan menyimpan rules&#xa;  dengan nilai CF (Certainty Factor)&#xa;  untuk setiap pasangan&#xa;  penyakit-gejala" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;fontSize=10;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="780" y="100" width="200" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="desc-title" value="Deskripsi Tabel:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="280" y="480" width="120" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="desc-users" value="users:&#xa;  - Menyimpan data pengguna (admin &amp; pengguna)&#xa;  - role = &#39;admin&#39; atau &#39;pengguna&#39;" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;fontSize=10;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="280" y="510" width="180" height="55" as="geometry"/>
-                </mxCell>
-                <mxCell id="desc-gejala" value="gejala:&#xa;  - Menyimpan data gejala&#xa;  - tanaman jagung" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;fontSize=10;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="280" y="580" width="170" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="desc-penyakit" value="penyakit:&#xa;  - Menyimpan data penyakit&#xa;  - &amp; solusi pengendalian" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;fontSize=10;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="520" y="505" width="170" height="55" as="geometry"/>
-                </mxCell>
-                <mxCell id="desc-basis" value="basis_pengetahuan:&#xa;  - Relasi many-to-many&#xa;  - Menyimpan rules&#xa;  - cf = Certainty Factor" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;fontSize=10;fontColor=#333333" parent="1" vertex="1">
-                    <mxGeometry x="518" y="570" width="180" height="60" as="geometry"/>
-                </mxCell>
+
             </root>
         </mxGraphModel>
     </diagram>
