@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net" modified="2026-05-20T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+  <diagram name="Use Case Admin" id="uc-admin">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-dash" value="Dashboard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-peny" value="Kelola Penyakit" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bp" value="Kelola Basis Pengetahuan" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="280" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-gej" value="Gejala" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="380" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-login" value="Login" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="230" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-logout" value="Log Out" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1" edge="1" parent="1" source="admin" target="uc-dash"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="l2" edge="1" parent="1" source="admin" target="uc-peny"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="l3" edge="1" parent="1" source="admin" target="uc-bp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="l4" edge="1" parent="1" source="admin" target="uc-gej"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="inc1" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=none;html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc-dash" target="uc-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="inc2" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=none;html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc-peny" target="uc-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="inc3" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=none;html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc-bp" target="uc-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="inc4" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=none;html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc-gej" target="uc-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ext1" value="&lt;&lt;extend&gt;&gt;" style="edgeStyle=none;html=1;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uc-logout" target="uc-login"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
